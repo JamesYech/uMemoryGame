@@ -6,45 +6,59 @@ var turns=-1;
 var matches=0;
 var t0, t1, t2, t3;  //timers
 var designChoice="flowers";
+var faceDesign=[];
+
+function setFaceDesign() {
+    faceDesign=[];
 
 
-switch (designChoice) {
-    case "dogs":
-     var faceDesign = [
-        "./img/dog1.jpg","./img/dog2.jpg","./img/dog2.jpg","./img/dog3.jpg",
-        "./img/dog4.jpg","./img/dog5.jpg","./img/dog6.jpg","./img/dog7.jpg",
-        "./img/dog8.jpg","./img/dog8.jpg","./img/dog10.jpg","./img/dog11.jpg"
-    ]
-    break;
-
-    case "flowers":
-        var faceDesign = [
-            "./img/flower1.jpg", "./img/flower2.jpg","./img/flower4.jpg",
-            "./img/flower5.jpg","./img/flower6.jpg","./img/flower7.jpg","./img/flower8.jpg",
-            "./img/flower9.jpg","./img/flower10.jpg","./img/flower11.jpg","./img/flower12.jpg",
-            "./img/flower13.jpg","./img/flower14.jpg","./img/flower15.jpg"
-            ]
+    switch (designChoice) {
+        case "dogs":
+         faceDesign = [
+            "./img/dog1.jpg","./img/dog2.jpg","./img/dog2.jpg","./img/dog3.jpg",
+            "./img/dog4.jpg","./img/dog5.jpg","./img/dog6.jpg","./img/dog7.jpg",
+            "./img/dog8.jpg","./img/dog8.jpg","./img/dog10.jpg","./img/dog11.jpg"
+        ]
         break;
 
-    default:
-     var faceDesign = [
-        "glyphicon-plus","glyphicon-eur","glyphicon-envelope","glyphicon-cloud",
-        "glyphicon-music","glyphicon-search","glyphicon-heart","glyphicon-film",
-        "glyphicon-star","glyphicon-home","glyphicon-flag","glyphicon-camera",
-        "glyphicon-leaf","glyphicon-fire","glyphicon-eye-open","glyphicon-shopping-cart",
-        "glyphicon-paperclip","glyphicon-phone","glyphicon-usd","glyphicon-phone-alt",
-        "glyphicon-tree-conifer","glyphicon-tree-deciduous","glyphicon-apple",
-        "glyphicon-hourglass","glyphicon-sunglasses"
-    ]
+        case "flowers":
+            faceDesign = [
+                "./img/flower1.jpg", "./img/flower2.jpg","./img/flower4.jpg",
+                "./img/flower5.jpg","./img/flower6.jpg","./img/flower7.jpg","./img/flower8.jpg",
+                "./img/flower9.jpg","./img/flower10.jpg","./img/flower11.jpg","./img/flower12.jpg",
+                "./img/flower13.jpg","./img/flower14.jpg","./img/flower15.jpg"
+                ]
+            break;
+
+        default:
+         faceDesign = [
+            "glyphicon-plus","glyphicon-eur","glyphicon-envelope","glyphicon-cloud",
+            "glyphicon-music","glyphicon-search","glyphicon-heart","glyphicon-film",
+            "glyphicon-star","glyphicon-home","glyphicon-flag","glyphicon-camera",
+            "glyphicon-leaf","glyphicon-fire","glyphicon-eye-open","glyphicon-shopping-cart",
+            "glyphicon-paperclip","glyphicon-phone","glyphicon-usd","glyphicon-phone-alt",
+            "glyphicon-tree-conifer","glyphicon-tree-deciduous","glyphicon-apple",
+            "glyphicon-hourglass","glyphicon-sunglasses"
+        ]
+    }
 }
 
-
 function openMenu() {
-    document.getElementById("mySidemenu").style.width = "250px";
+    document.getElementById("mySidemenu").style.width = "225px";
 }
 
 function closeMenu() {
     document.getElementById("mySidemenu").style.width = "0";
+
+    let radios= document.getElementsByName('radios');
+    for (let i=0, length=radios.length;i<length;i++) {
+        if (radios[i].checked){
+            designChoice=radios[i].value;
+            buildGrid();
+            console.log("found the radio = "+designChoice);
+            break;
+        }
+    }
 }
 
 
@@ -58,6 +72,7 @@ function buildGrid() { //on load and on reset
     turns=-1;
     matches=0;
 
+    console.log(designChoice);
     updateTurns();
     buildIconArray();
 
@@ -122,6 +137,7 @@ function buildGrid() { //on load and on reset
 }
 
 function buildIconArray() {
+    setFaceDesign();
     let numArray=[];
     let card={};
     let designCount=Object.keys(faceDesign).length;
