@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Memory Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="row header" id="header">
+            <h1>The Memory Game!</h1>
+            <hr class="header__hr"></hr>
+        </div>
+
+        <div id="main">
+            <div class="row score" id="scoreboard">
+                <h4>
+                    Turns this game: <span id="score">0</span>
+                </h4>
+            </div>
+
+            <div class="main__field" id="field">
+                <div class="row card-grid" id="card-grid">
+                </div>
+            </div>
+        </div>  <!-- end main -->
+
+        <div class="row footer" id="footer">
+            <hr class="footer__hr"></hr>
+            <h6>Credits: go here</h6>
+        </div>
+
+    </div>  <!-- container -->
+
+    <div class="winModal" id="modal" >
+
+        <div class="modal__content">
+            <div class="row--left">
+                <span class="close">&times;</span>
+            </div>
+
+            <div class="row">
+                <img src="./img/winner.png"alt="Winners' Trohpy">
+            </div>
+            <div class="row">
+                <h3 id="congrats"></h3>
+            </div>
+        </div>
+
+    </div>
+
+
+        <script src="js/mgame.js"></script>
+
+
+</body>
+</html>
