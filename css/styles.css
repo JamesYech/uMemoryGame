@@ -47,10 +47,14 @@ body {
 
 .container {
     width: 100%;
-    margin: auto;
     background-color: #abdcd6;
-/*    display: inline-block;
-*/
+
+    display: inline-grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-gap: 20px;
+    /*grid-auto-rows: minmax(50px, auto);*/
+    /*min-width: 300px;*/
+    /*margin: auto;*/
 
 }
 
@@ -114,7 +118,40 @@ body {
 
 }
 
+/*----- column spans ------------------------------------*/
 
+    .col-span-8 {
+        grid-column: span 8;
+    }
+
+    .col-span-2 {
+        grid-column: span 2;
+    }
+
+    .col-span-12 {
+        grid-column: span 12;
+    }
+
+.main-grid {
+    grid-column: 4/10;
+    display: inline-grid;
+    grid-row: 2;
+    justify-content:  center;
+}
+
+  .header-grid {
+        display: inline-grid;
+        grid-row: 1;
+    }
+
+.header__title {
+  /*grid-column: 4/10;*/
+}
+
+.header__menu {
+  grid-column: 1;
+  /*justify-content: left;*/
+}
 
 .header {
     width: 100%;
@@ -170,6 +207,46 @@ body {
         margin: 5px 0 5px;
 
 }
+
+/*menu options ---------------------------------------------
+*/
+
+.header__menu--style {
+  font-size: 30px;
+  cursor: pointer;
+      /*top: 50%;
+    transform: translateY(-50%);*/
+  text-align: left;
+}
+
+
+.sidemenu {
+    height: auto;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    /*top: 0;
+    left: 0;*/
+    background-color: #abdcd6;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 2px 3px 5px 0 #333;
+}
+
+
+
+.sidemenu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+
+
 
 /*modal related ---from w3schools.com-----------------------
 */
@@ -246,7 +323,9 @@ padding:0 20px 20px 20px;
     margin-bottom: 0;*/
     /*margin-top: 20px;*/
     text-align: left;
-    width: 600px;
+    margin-bottom: 5px;
+
+    /*width: 600px;*/
 
    /* box-sizing:*/
 /*    padding: 0;
@@ -409,93 +488,12 @@ padding:0 20px 20px 20px;
 }
 
 
-/*.dog-face {
-      background-repeat: no-repeat;
-    background-position: center;
-}*/
 
 
-.dog1 {
-    background-image: url("../img/dog1.jpg");
+/*----- main -------------------------------------------*/
 
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
-.dog1 {
-    background-image: url("../img/dog1.jpg");
-
-
-}
-
+/*    .main-grid {
+        display: inline-grid;
+        grid-row: 2/6;
+    }
+*/

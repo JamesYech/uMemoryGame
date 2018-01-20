@@ -2,7 +2,7 @@
 
 var cards=[];
 var faceUp=[];
-var turns=0;
+var turns=-1;
 var matches=0;
 var t0, t1, t2, t3;  //timers
 var designChoice="flowers";
@@ -39,7 +39,13 @@ switch (designChoice) {
 }
 
 
+function openMenu() {
+    document.getElementById("mySidemenu").style.width = "250px";
+}
 
+function closeMenu() {
+    document.getElementById("mySidemenu").style.width = "0";
+}
 
 
 
@@ -49,9 +55,10 @@ function buildGrid() { //on load and on reset
     // clear all the variables
     cards=[];
     faceUp=[];
-    turns=0;
+    turns=-1;
     matches=0;
 
+    updateTurns();
     buildIconArray();
 
     document.getElementById("card-grid").remove();
@@ -107,7 +114,7 @@ function buildGrid() { //on load and on reset
     }
 
     //append new card grid
-        newCardGrid.classList.add("row");
+        //newCardGrid.classList.add("row");
         newCardGrid.classList.add("card-grid");
         newCardGrid.id = "card-grid";
 
@@ -194,10 +201,10 @@ function cardClicked(e) {
 }
 
 
-function updateTurns(t) {
-    t+=1;
-    document.getElementById('score').innerHTML=t;
-    return t;
+function updateTurns() {
+    turns+=1;
+    document.getElementById('score').innerHTML=turns;
+    return(turns);
 }
 
 function flipUp(e) {
@@ -214,7 +221,8 @@ function isMatchTrue() {
         document.getElementById(faceUp[1]).classList.add("aniMatch");
         console.log(faceUp);
 
-        turns=updateTurns(turns);
+        updateTurns();
+
         matches+=1;
         console.log("1. faceUp = "+faceUp.length);
         if (matches==8){
@@ -232,7 +240,8 @@ function isMatchTrue() {
 
 function isMatchFalse() {
     let i=0;
-    turns=updateTurns(turns);
+    updateTurns();
+
     for (i=0; i<=1; i++) {
             document.getElementById(faceUp[i]).classList.add("aniNoMatch");
             document.getElementById(faceUp[i]).classList.add("aniNoMatch");
