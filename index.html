@@ -5,53 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Memory Game</title>
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 <body>
 
-<div id="mySidemenu" class="sidemenu">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-          <div class="control-group">
+    <!-- Menu input controls from https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes -->
+    <div  class="sidemenu" id="mySidemenu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+        <div class="control-group">
             <h2>Card Designs</h2>
             <label class="control control--radio">Glyphs
-              <input type="radio" name="radios" value="glyphs" checked="checked" onclick="closeMenu()"/>
-              <div class="control__indicator"></div>
+                <input type="radio" name="radios" value="glyphs" checked="checked" onclick="closeMenu()"/>
+                <div class="control__indicator"></div>
             </label>
             <label class="control control--radio">Dogs
-              <input type="radio" name="radios" value="dogs" onclick="closeMenu()"/>
-              <div class="control__indicator"></div>
+                <input type="radio" name="radios" value="dogs" onclick="closeMenu()"/>
+                <div class="control__indicator"></div>
             </label>
-                <label class="control control--radio">Flowers
-              <input type="radio" name="radios" value="flowers" onclick="closeMenu()"/>
-              <div class="control__indicator"></div>
+            <label class="control control--radio">Flowers
+                <input type="radio" name="radios" value="flowers" onclick="closeMenu()"/>
+                <div class="control__indicator"></div>
             </label>
-
-          </div>
-</div>
+        </div>
+    </div>
 
     <div class="container">
 
-        <!-- <div class="header-grid col-span-12 header" id="header"> -->
-        <div class="row header col-span-12" id="header">  <!-- header-group -->
-            <div class="header__menu--flex header__menu--style">
-                <!-- <div class="header__menu--style"> -->
+        <div class="row header col-span-12" id="header">
+            <div class="header__left">
                 <span  onclick="openMenu()">
                     &#9776
                 </span>
-                <!-- </div> -->
             </div>
-
-            <div class="header__title--flex">  <!-- col-span-8 -->
+            <div class="header__title">
                 <h1>The Memory Game!</h1>
             </div>
-
-            <div class="header__menu--flex">
+            <div class="header__right">
             </div>
-        <!-- </div> -->
-        <!-- <div class="container2  col-span-12"> -->
             <hr class="header__hr">
             </hr>
-
         </div>
 
         <div class="main-grid col-span-12" id="main">
@@ -70,31 +61,26 @@
 
         <div class="footer col-span-12" id="footer">
             <hr class="footer__hr"></hr>
-            <h5>Credits: go here</h5>
+            <h5>James Yech</h5>
         </div>
 
-    </div>
-
-
-
+    </div>  <!-- end of container -->
 
     <div class="winModal" id="modal" >
         <div class="modal__content">
-            <div class="row2--left">
+            <div class="row__modal--left">
                 <span class="close">&times;</span>
             </div>
-            <div class="row2">
+            <div class="row__modal">
                 <img src="./img/winner.png" alt="Winners' Trohpy">
             </div>
-            <div class="row2">
+            <div class="row__modal">
                 <h3 id="congrats"></h3>
             </div>
         </div>
     </div>
 
-
     <script src="js/mgame.js"></script>
-
 
 </body>
 </html>

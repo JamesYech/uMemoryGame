@@ -1,19 +1,9 @@
+/*----- global/default settings -------------------------*/
 
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-/*
-Color options
-
-    #EB593C
-    #333333
-    #ABDCD6
-    #FFFCEC
-
-*/
+    * {                               /*white space reset*/
+        margin: 0;
+        padding: 0;
+    }
 
     article,
     body,
@@ -26,110 +16,37 @@ Color options
         box-sizing: border-box;
     }
 
-body {
-    margin: 10px auto;
-    text-align: center;
-    max-width: 800px;
-    /*display: flex;*/
+    body {
+        margin: 10px auto;
+        text-align: center;
+        max-width: 800px;
+    }
 
-}
-
-.container {
-    width: 100%;
-    background-color: #abdcd6;
-
-    display: inline-grid;
-    grid-template-columns: repeat(12,1fr);
-    grid-gap: 20px;
-    /*grid-auto-rows: minmax(50px, auto);*/
-    /*min-width: 300px;*/
-    /*margin: auto;*/
-
-}
-
-.row {
-  width: 100%;
-  /*height: 100%;*/
-  display: flex;
-  flex-wrap: wrap;
-  /*justify-content: center;*/
-  align-items: center;
-}
+    /*----- color reference -------------------------------
+      #EB593C
+      #333333
+      #ABDCD6
+      #FFFCEC
+    */
 
 
+/*----- common ------------------------------------------*/
 
+    .container {
+        width: 100%;
+        background-color: #abdcd6;
+        display: inline-grid;
+        grid-template-columns: repeat(12,1fr);
+        grid-gap: 20px;
+    }
 
-.card {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-     position: relative;
-    /*add 1/19*/
-      transform-style: preserve-3d;
-        transition: 0.6s;
-}
+    .row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
-
-
-.card__wrapper {
-    perspective: 1000px;
-
-}
-
-
-/* .flip-container .flipper {
-    transform: rotateY(180deg);
-}
-*/
-/*.flipper {
-       transform-style: preserve-3d;
-        transition: 0.6s;
-}
-*/
-
-.flip-front {
-    transform: rotateY(0deg);
-    transform-style: preserve-3d;
-        transition: 0.6s;
-
-}
-
-.flip-back {
-    transform: rotateY(180deg);
-
-    /*removed 1/19*/
- /*   transform-style: preserve-3d;
-        transition: 0.6s;*/
-        /*z-index: -1;*/
-}
-
-
-
-.card__front {
-    background-color: #333333;
-    z-index: 2;
-/*box-shadow: 2px 3px 5px 0 #333;*/
-}
-
-.card__front--shadow {
-    box-shadow: 2px 3px 5px 0 #333;
-}
-
-
-.card__back {
-    background-color: #EB593C;
-    transform: rotateY(180deg);
-    box-shadow: 2px 3px 5px 0 #333;
-    color:#333;
-}
-
-.card_front, .card__back {
-    backface-visibility: hidden;
-    position: absolute;
-    top:0;
-    left:0;
-
-}
 
 /*----- column spans ------------------------------------*/
 
@@ -145,474 +62,373 @@ body {
         grid-column: span 12;
     }
 
-.main-grid {
-    grid-column: 4/10;
-    display: inline-grid;
-    /*grid-row: 2;*/
-    justify-content:  center;
-}
 
+/*----- header ------------------------------------------*/
 
-
-  .header-grid {
-        display: inline-grid;
-        grid-row: 1;
+    .header {
+        background-color: #EB593C;
+        color: #ABDCD6;
     }
 
-.header-group {
-  display: flex;
-  flex-wrap: nowrap;
-  vertical-align: top;
-  background: #fff;
-  text-align: left;
-  width: 100%;
-  /*box-shadow: 0 1px 2px rgba(0,0,0,0.1);*/
-  /*padding: 30px;*/
-  /*min-width: 200px;*/
-  /*height: 210px;*/
-  /*margin: 10px;*/
-}
+    .header__left {
+        cursor: pointer;
+        font-size: 30px;
+        text-align: left;
+        margin:5px 5px;
+        width: 25%;
+        min-width: 40px;   /*need to get actual min width*/
+    }
 
+    .header__right {
+        width: 25%;
+        min-width: 40px;   /*need to get actual min width*/
 
+    }
 
+    .header__title {
+        width: 50%;
+        min-width: 200px;
+    }
 
-}
-
-.header__title {
-  /*grid-column: 4/10;*/
-  width: 50%;
-  min-width: 200px;
-}
-
-.header__title--flex {
-  width: 50%;
-  min-width: 200px;
-}
-
-.header__menu--flex {
-  width: 25%;
-  min-width: 40px;
-
-
-}
-
-.header__menu {
-  grid-column: 1;
-  /*justify-content: left;*/
-}
-
-.header {
-    /*width: 100%;*/
-    color: #ABDCD6;  /*#FFFCEC;*/
-    background-color: #EB593C;
-
-}
-
-.header__hr {
-        /*grid-row: 2;*/
+    .header__hr {
         background: #ABDCD6;
         height: 2px;
         margin: 5px 0 5px;
         width: 100%;
-
-}
-.row2 {
-    display: inline-block;
-    grid-gap: 10px;
-}
-
-.row2--left {
-    display: block;
-    grid-gap: 10px;
-    align-content: left;
-}
-
-.card-grid {
-    grid-gap: 20px;
-    grid-auto-rows: 100px;
-    width: 100%;
-    display: grid;
-    padding: 0;
-    grid-template-columns: repeat(4,100px);
-}
+    }
 
 
-.memImage {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2em;
-}
+/*----- menu control ------------------------------------*/
 
-.footer {
-    width: 100%;
-    color: #EB593C;
-    background-color: #ABDCD6;
-}
+    .sidemenu {
+        height: 195px;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        background-color: #abdcd6;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 40px;
+        box-shadow: 2px 3px 5px 0 #333;
+        color: #333;
+    }
 
-.footer__hr {
+    .sidemenu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: auto;
+        text-decoration: none;
+        color: #aaa;
+        cursor: pointer;
+    }
 
+    .control-group {
+      display: inline-block;
+      vertical-align: top;
+      background: #abdcd6;
+      text-align: left;
+      width: 150px;
+      height: auto;
+    }
+
+    .control {
+      display: block;
+      position: relative;
+      padding-left: 30px;
+      margin-top: 15px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .control input {  /*//hides default formatting*/
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .control__indicator {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background: #e6e6e6;
+    }
+
+    .control--radio .control__indicator {  /*Makes the boxes round*/
+      border-radius: 50%;
+    }
+
+    .control:hover input ~ .control__indicator,
+    .control input:focus ~ .control__indicator {
+      background: #ccc;
+    }
+
+    .control input:checked ~ .control__indicator {
+      background: #EB593C;
+    }
+
+    .control:hover input:not([disabled]):checked ~ .control__indicator,
+    .control input:checked:focus ~ .control__indicator {
+      background: #0e647d;
+    }
+
+    .control__indicator:after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+
+    .control input:checked ~ .control__indicator:after {
+      display: block;
+    }
+
+    .control--radio .control__indicator:after {  /*create center dot*/
+      left: 7px;
+      top: 7px;
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+
+/*----- main grid ---------------------------------------*/
+
+    .main-grid {
+        grid-column: 4/10;
+        display: inline-grid;
+        justify-content: center;
+    }
+
+    .score {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .card-grid {
+        grid-gap: 20px;
+        grid-auto-rows: 100px;
+        width: 100%;
+        display: grid;
+        padding: 0;
+        grid-template-columns: repeat(4,100px);
+    }
+
+
+/*----- cards--styles -----------------------------------*/
+    /*flipping code based on David Walsh -- davidwalsh.name/demo/css-flip.php*/
+
+  .card__wrapper {
+      perspective: 1000px;
+  }
+
+  .card {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: 0.6s;
+  }
+
+  .card__front {
+      background-color: #333333;
+      z-index: 2;
+  }
+
+  .card__front--shadow {
+      box-shadow: 2px 3px 5px 0 #333;
+  }
+
+  .card__back {
+      background-color: #EB593C;
+      transform: rotateY(180deg);
+      box-shadow: 2px 3px 5px 0 #333;
+      color:#333;
+  }
+
+  .card_front,
+  .card__back {
+      backface-visibility: hidden;
+      position: absolute;
+      top:0;
+      left:0;
+
+  }
+
+
+/*----- cards--transforms/animations --------------------*/
+
+    .bounce-up {
+        animation: bounce-up 0.75s ease;
+    }
+
+    @keyframes bounce-up {
+        20%  { transform: scale(.7,.7) translateY(0); }
+        60% { transform: scale(1.25,1.25) translateY(0px); }
+    }
+
+    .flip-back {
+        transform: rotateY(180deg);
+    }
+
+    .aniMatch {
+        animation: aniMatch 1s ease;
+    }
+
+    @keyframes aniMatch {
+        20% {transform: rotateY(180deg)  translateY(-15px);}
+        35% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
+        50% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
+        65% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
+        80% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
+    }
+
+    .aniNoMatch {
+        animation: aniNoMatch 0.5s ease;
+    }
+
+    @keyframes aniNoMatch {
+         0% {transform: rotateY(180deg) translateX(-10px);}
+        25% {transform: rotateY(180deg) translateX(10px);}
+        50% {transform: rotateY(180deg) translateX(-10px);}
+        75% {transform: rotateY(180deg) translateX(10px);}
+    }
+
+
+/*----- cards--face designs -----------------------------*/
+
+    .glyph--center {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2em;
+    }
+
+    .glyphicon {     /*from bootstrap.js*/
+        position: relative;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    @font-face {      /*from bootstrap.js*/
+        font-family: 'Glyphicons Halflings';
+        src: url('../fonts/glyphicons-halflings-regular.eot');
+        src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+            url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
+            url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+            url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    }
+
+
+/*----- footer ------------------------------------------*/
+
+    .footer {
+        width: 100%;
+        color: #EB593C;
+        background-color: #ABDCD6;
+    }
+
+    .footer__hr {
         background-color: #EB593C;
         height: 2px;
         margin: 5px 0 5px;
-
-}
-
-/*menu options ---------------------------------------------
-*/
-
-.header__menu--style {
-  font-size: 30px;
-  cursor: pointer;
-      /*top: 50%;
-    transform: translateY(-50%);*/
-  text-align: left;
-  margin:5px 5px;
-}
-
-
-.sidemenu {
-    height: 195px;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    /*top: 0;
-    left: 0;*/
-    background-color: #abdcd6;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 40px;
-    box-shadow: 2px 3px 5px 0 #333;
-}
-
-
-
-.sidemenu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: auto;
-    text-decoration: none;
-    color: #aaa;
-    cursor: pointer;
-
-}
-
-.control-group {
-  display: inline-block;
-  vertical-align: top;
-  background: #abdcd6;
-  text-align: left;
-  /*box-shadow: 0 1px 2px rgba(0,0,0,0.1);*/
-  /*padding: 10px;*/
-  width: auto;
-  height: auto;
-  /*margin: 10px;*/
-}
-.control {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-top: 15px;
-  cursor: pointer;
-  font-size: 18px;
-}
-.control input {  /*//hide default formatting*/
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-.control__indicator {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background: #e6e6e6;
-}
-.control--radio .control__indicator {  /*/Makes the boxes round*/
-  border-radius: 50%;
-}
-.control:hover input ~ .control__indicator,
-.control input:focus ~ .control__indicator {
-  background: #ccc;
-}
-.control input:checked ~ .control__indicator {
-  background: #2aa1c0;
-}
-.control:hover input:not([disabled]):checked ~ .control__indicator,
-.control input:checked:focus ~ .control__indicator {
-  background: #0e647d;
-}
-
-.control__indicator:after {
-  content: '';
-  position: absolute;
-  display: none;
-}
-.control input:checked ~ .control__indicator:after {
-  display: block;
-}
-
-.control--radio .control__indicator:after {  /*Center dot*/
-  left: 7px;
-  top: 7px;
-  height: 6px;
-  width: 6px;
-  border-radius: 50%;
-  background: #fff;
-}
-
-
-
-
-/*modal related ---from w3schools.com-----------------------
-*/
-
-.winModal {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-transition: 0.5s;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-/*    justify-content:  center;
-*/}
-
-.modal__content {
-    /*need to center it*/
-        position: relative;
-    top: 50%;
-    border-radius: 5px;
-    transform: translateY(-50%);
-    background-color: #abdcd6;
-    color: black;  /*get corect color*/
-    width: 60%;
-/*    maybe add a little header boarder
-*/ display: inline-grid;
-padding:0 20px 20px 20px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/*.trophy {
-    background-image: url("../img/winner.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 144px;
-}*/
-
-
-/*----------------------------------------------
-*/
-
-.main__field {
-    min-width: 600px;
-    width: 100%;
-    height: 600px;
-    background-color: #abdcd6;
-    /*padding: 20px;*/
-    display: inline-grid;
-
-    /*margin: auto;*/
-    justify-content:  center;
-
-}
-
-.score {
-    /*margin: 0;
-    margin-bottom: 0;*/
-    /*margin-top: 20px;*/
-    text-align: left;
-    margin-bottom: 5px;
-
-    /*width: 600px;*/
-
-   /* box-sizing:*/
-/*    padding: 0;
-    display: flex;*/
-    /*max-height: 10px;*/
-
-}
-
-.aniMatch {
-    animation: aniMatch 1s ease;
-}
-
-@keyframes aniMatch {
-     0% {transform: rotateY(180deg)  translateY(-15px);}
-    20% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
-    40% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
-    60% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
-    80% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
-
-}
-
-.aniNoMatch {
-    animation: aniNoMatch 0.5s ease;
-}
-
-@keyframes aniNoMatch {
-
-     0% {transform: rotateY(180deg) translateX(-10px);}
-    25% {transform: rotateY(180deg) translateX(10px);}
-    50% {transform: rotateY(180deg) translateX(-10px);}
-    75% {transform: rotateY(180deg) translateX(10px);}
-}
-
-
-.bounce-up {
-
-    animation: bounce-up 0.75s ease;
-
-}
-@keyframes bounce-up {
-
-    20%  { transform: scale(.7,.7) translateY(0); }
-    60% { transform: scale(1.25,1.25) translateY(0px); }
-
-}
-
-/*.bump {
-    animation: bump 0.3s ease;
-
-}
-
-@keyframes bump {
-    50% { transform: scale(.9,.9) rotateY(180deg); }
-}*/
-
-
-/*@keyframes flipCard {
-    100% {transform: rotateY(180deg);}
-}*/
-
-@font-face {
-  font-family: 'Glyphicons Halflings';
-
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
-
-.glyphicon {
-  position: relative;
-   display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-}
-
-
-/*---  glyphicons used  ----------------*/
-.glyphicon-plus:before {
-  content: "\002b";
-}
-.glyphicon-euro:before,
-.glyphicon-eur:before {
-  content: "\20ac";
-}
-.glyphicon-envelope:before {
-  content: "\2709";
-}
-
-.glyphicon-cloud:before {
-  content: "\2601";
-}
-
-.glyphicon-music:before {
-  content: "\e002";
-}
-.glyphicon-search:before {
-  content: "\e003";
-}
-.glyphicon-heart:before {
-  content: "\e005";
-}
-.glyphicon-film:before {
-  content: "\e009";
-}
-.glyphicon-star:before {
-  content: "\e006";
-}
-.glyphicon-home:before {
-  content: "\e021";
-}
-.glyphicon-flag:before {
-  content: "\e034";
-}
-.glyphicon-camera:before {
-  content: "\e046";
-}
-.glyphicon-leaf:before {
-  content: "\e103";
-}
-.glyphicon-fire:before {
-  content: "\e104";
-}
-.glyphicon-eye-open:before {
-  content: "\e105";
-}
-.glyphicon-shopping-cart:before {
-  content: "\e116";
-}
-.glyphicon-paperclip:before {
-  content: "\e142";
-}
-.glyphicon-phone:before {
-  content: "\e145";
-}
-.glyphicon-usd:before {
-  content: "\e148";
-}
-.glyphicon-phone-alt:before {
-  content: "\e183";
-}
-.glyphicon-tree-conifer:before {
-  content: "\e199";
-}
-.glyphicon-tree-deciduous:before {
-  content: "\e200";
-}
-.glyphicon-apple:before {
-  content: "\f8ff";
-}
-.glyphicon-hourglass:before {
-  content: "\231b";
-}
-.glyphicon-sunglasses:before {
-  content: "\e240";
-}
-
-
-
-
-/*----- main -------------------------------------------*/
-
-/*    .main-grid {
-        display: inline-grid;
-        grid-row: 2/6;
     }
-*/
+
+
+/*----- win modal ----- from w3schools.com --------------*/
+
+    .winModal {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: 0.5s;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal__content {
+        position: relative;
+        top: 50%;
+        border-radius: 5px;
+        transform: translateY(-50%);
+        background-color: #abdcd6;
+        color: #333;
+        width: 300px;
+        height: 300px;
+        /*maybe add a little header boarder*/
+        display: inline-grid;
+        padding:0 20px 20px 20px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #333;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .row__modal {
+        display: inline-block;
+        grid-gap: 10px;
+    }
+
+    .row__modal--left {
+        display: block;
+        grid-gap: 10px;
+        align-content: left;
+    }
+
+
+/*----- glyphicons used -- from bootstrap.js ------------*/
+
+.glyphicon-plus:before {content: "\002b";}
+.glyphicon-euro:before,.glyphicon-eur:before {content: "\20ac";}
+.glyphicon-envelope:before {content: "\2709";}
+.glyphicon-cloud:before {content: "\2601";}
+.glyphicon-music:before {content: "\e002";}
+.glyphicon-search:before {content: "\e003";}
+.glyphicon-heart:before {content: "\e005";}
+.glyphicon-film:before {content: "\e009";}
+.glyphicon-star:before {content: "\e006";}
+.glyphicon-home:before {content: "\e021";}
+.glyphicon-flag:before {content: "\e034";}
+.glyphicon-camera:before {content: "\e046";}
+.glyphicon-leaf:before {content: "\e103";}
+.glyphicon-fire:before {content: "\e104";}
+.glyphicon-eye-open:before {content: "\e105";}
+.glyphicon-shopping-cart:before {content: "\e116";}
+.glyphicon-paperclip:before {content: "\e142";}
+.glyphicon-phone:before {content: "\e145";}
+.glyphicon-usd:before {content: "\e148";}
+.glyphicon-phone-alt:before {content: "\e183";}
+.glyphicon-tree-conifer:before {content: "\e199";}
+.glyphicon-tree-deciduous:before {content: "\e200";}
+.glyphicon-apple:before {content: "\f8ff";}
+.glyphicon-hourglass:before {content: "\231b";}
+.glyphicon-sunglasses:before {content: "\e240";}
+
+
+
+
