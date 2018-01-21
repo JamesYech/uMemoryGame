@@ -31,29 +31,28 @@
 
     <div class="container">
 
-        <div class="header-grid col-span-12 header" id="header">
-
-            <div class="header__menu">
-                <div class="header__menu--style">
+        <!-- <div class="header-grid col-span-12 header" id="header"> -->
+        <div class="row header col-span-12" id="header">  <!-- header-group -->
+            <div class="header__menu--flex header__menu--style">
+                <!-- <div class="header__menu--style"> -->
                 <span  onclick="openMenu()">
                     &#9776
                 </span>
-                </div>
+                <!-- </div> -->
             </div>
 
-            <div class="header__title col-span-8">
+            <div class="header__title--flex">  <!-- col-span-8 -->
                 <h1>The Memory Game!</h1>
             </div>
 
-            <div class="col-span-2">
+            <div class="header__menu--flex">
             </div>
-
-            <hr class="header__hr col-span-12">
+        <!-- </div> -->
+        <!-- <div class="container2  col-span-12"> -->
+            <hr class="header__hr">
             </hr>
 
         </div>
-
-
 
         <div class="main-grid col-span-12" id="main">
             <div class="score" id="scoreboard">
@@ -76,15 +75,18 @@
 
     </div>
 
+
+
+
     <div class="winModal" id="modal" >
         <div class="modal__content">
-            <div class="row--left">
+            <div class="row2--left">
                 <span class="close">&times;</span>
             </div>
-            <div class="row">
+            <div class="row2">
                 <img src="./img/winner.png" alt="Winners' Trohpy">
             </div>
-            <div class="row">
+            <div class="row2">
                 <h3 id="congrats"></h3>
             </div>
         </div>
