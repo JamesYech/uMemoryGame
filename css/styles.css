@@ -19,7 +19,9 @@
     body {
         margin: 10px auto;
         text-align: center;
-        max-width: 800px;
+        box-sizing: border-box;
+
+
     }
 
     /*----- color reference -------------------------------
@@ -29,22 +31,266 @@
       #FFFCEC
     */
 
+.container-new {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ABDCD6;
+
+
+}
+
+.row-new {  /*row*/
+  width: 100%;
+  /*height: 100%;*/
+  display: flex;
+  flex-wrap: nowrap;
+             justify-content: center;
+  align-items: center;
+
+}
+
+.row-header2 {
+   width: 100%;
+  /*height: 100%;*/
+  display: flex;
+  flex-wrap: wrap;
+             justify-content: center;
+  align-items: center;
+}
+
+.card-wrap-new {    /*card*/
+  /*display: inline-block;*/
+  /*vertical-align: top;*/
+  /*background: #fff;*/
+  /*text-align: left;*/
+  /*box-shadow: 0 2px 3px rgba(0,0,0,0.1);*/
+  padding: 0px;
+  width: 20%;
+  /*height: 20%;*/
+  margin: 1.5%;
+}
+
+.stats-wrap {    /*card*/
+  display: inline-block;
+  vertical-align: top;
+  /*background: #fff;*/
+  text-align: left;
+  /*box-shadow: 0 2px 3px rgba(0,0,0,0.1);*/
+  padding: 0px;
+  width: 15%;
+  height: 15%;
+  margin: 1%;
+}
+
+.stats-bar {
+  width:20%;
+  text-align: left;
+}
+
 
 /*----- common ------------------------------------------*/
 
-    .container {
+/*    .container {
         width: 100%;
         background-color: #abdcd6;
         display: inline-grid;
         grid-template-columns: repeat(12,1fr);
         grid-gap: 20px;
-    }
+    }*/
+
+    .container {
+  width: 100%;
+  /*height: 100%;*/
+  display: flex;
+  flex-wrap: wrap;
+  /*justify-content: center;*/
+  align-items: center;
+}
 
     .row {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+    }
+
+    .row--nowrap {
+      width: 100%;
+      display: inline-block;
+      /*flex-wrap: nowrap;*/
+      /*align-items: center;*/
+    }
+
+  .field-new {
+
+  }
+
+/*----- cards--styles -----------------------------------*/
+    /*flipping code based on David Walsh -- davidwalsh.name/demo/css-flip.php*/
+
+  .card__wrapper {
+      perspective: 1000px;
+      /*position: relative;*/
+      width: 25%;
+      margin: 0;
+
+  }
+
+  .card {
+        /*width: 50%;
+        height: 0;
+        padding-top: 50%;*/
+
+      /*width: 25%;*/  /*100px*/
+      /*height: 25%;*/  /*100px*/
+      border-radius: 10px;
+      /*position: relative;*/
+      transform-style: preserve-3d;
+      transition: 0.6s;
+  }
+
+.stats {
+
+      border-radius: 10px;
+      background-color: #EB593C;
+  }
+
+
+       .card-wrap-new:before
+
+   {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  .stats:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+ /*   width: 100%;
+    height: 1em;
+    top:0;
+    left:0;
+    background-color: black;*/
+
+  }
+
+
+  .card__content {
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+  }
+  .card__front {
+      background-color: #333333;
+      z-index: 2;
+  }
+
+  .card__front--shadow {
+      box-shadow: 2px 3px 5px 0 #333;
+  }
+
+  .card__back {
+      background-color: #EB593C;
+      transform: rotateY(180deg);
+      box-shadow: 2px 3px 5px 0 #333;
+      color:#333;
+
+  }
+
+  .card__front,
+  .card__back {
+      backface-visibility: hidden;
+      position: absolute;
+      top:0;
+      left:0;
+          bottom: 0;
+    right: 0;
+
+  }
+
+
+/*----- cards--transforms/animations --------------------*/
+
+    .bounce-up {
+        animation: bounce-up 0.75s ease;
+    }
+
+    @keyframes bounce-up {
+        20%  { transform: scale(.7,.7) translateY(0); }
+        60% { transform: scale(1.25,1.25) translateY(0px); }
+    }
+
+    .flip-back {
+        transform: rotateY(180deg);
+    }
+
+    .aniMatch {
+        animation: aniMatch 1s ease;
+    }
+
+    @keyframes aniMatch {
+        20% {transform: rotateY(180deg)  translateY(-15px);}
+        35% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
+        50% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
+        65% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
+        80% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
+    }
+
+    .aniNoMatch {
+        animation: aniNoMatch 0.5s ease;
+    }
+
+    @keyframes aniNoMatch {
+         0% {transform: rotateY(180deg) translateX(-10px);}
+        25% {transform: rotateY(180deg) translateX(10px);}
+        50% {transform: rotateY(180deg) translateX(-10px);}
+        75% {transform: rotateY(180deg) translateX(10px);}
+    }
+
+
+/*----- cards--face designs -----------------------------*/
+
+    .glyph--center {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        /*left: 50%;
+        transform: translateX(-50%);*/
+        /*margin: auto;*/
+        font-size: 3rem;
+
+
+
+
+       /*       top:0;
+      left:0;
+          bottom: 0;
+    right: 0;*/
+    }
+
+    .glyphicon {     /*from bootstrap.js*/
+        /*position: relative;*/
+        /*display: inline-block;*/
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    @font-face {      /*from bootstrap.js*/
+        font-family: 'Glyphicons Halflings';
+        src: url('../fonts/glyphicons-halflings-regular.eot');
+        src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+            url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
+            url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+            url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
     }
 
 
@@ -93,10 +339,39 @@
     .header__hr {
         background: #ABDCD6;
         height: 2px;
-        margin: 5px 0 5px;
+        margin: 0 0 5px 0;
         width: 100%;
     }
 
+
+    .stats__hr  {
+        background: #333;
+        height: 0.5px;
+        margin: 5px 0 5px 0;
+        width: 75%;
+    }
+
+/*----- main grid ---------------------------------------*/
+
+    .main-grid {
+        grid-column: 4/10;
+        display: inline-grid;
+        justify-content: center;
+    }
+
+    .score {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .card-grid {
+        grid-gap: 1em;  /*20px*/
+        grid-auto-rows: 6em;  /*100px*/
+        width: 100%;
+        display: grid;
+        padding: 0;
+        grid-template-columns: repeat(4,6em); /*100px*/
+    }
 
 /*----- menu control ------------------------------------*/
 
@@ -193,143 +468,6 @@
       border-radius: 50%;
       background: #fff;
     }
-
-
-/*----- main grid ---------------------------------------*/
-
-    .main-grid {
-        grid-column: 4/10;
-        display: inline-grid;
-        justify-content: center;
-    }
-
-    .score {
-        text-align: left;
-        margin-bottom: 5px;
-    }
-
-    .card-grid {
-        grid-gap: 20px;
-        grid-auto-rows: 100px;
-        width: 100%;
-        display: grid;
-        padding: 0;
-        grid-template-columns: repeat(4,100px);
-    }
-
-
-/*----- cards--styles -----------------------------------*/
-    /*flipping code based on David Walsh -- davidwalsh.name/demo/css-flip.php*/
-
-  .card__wrapper {
-      perspective: 1000px;
-  }
-
-  .card {
-      width: 100px;
-      height: 100px;
-      border-radius: 5px;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: 0.6s;
-  }
-
-  .card__front {
-      background-color: #333333;
-      z-index: 2;
-  }
-
-  .card__front--shadow {
-      box-shadow: 2px 3px 5px 0 #333;
-  }
-
-  .card__back {
-      background-color: #EB593C;
-      transform: rotateY(180deg);
-      box-shadow: 2px 3px 5px 0 #333;
-      color:#333;
-  }
-
-  .card_front,
-  .card__back {
-      backface-visibility: hidden;
-      position: absolute;
-      top:0;
-      left:0;
-
-  }
-
-
-/*----- cards--transforms/animations --------------------*/
-
-    .bounce-up {
-        animation: bounce-up 0.75s ease;
-    }
-
-    @keyframes bounce-up {
-        20%  { transform: scale(.7,.7) translateY(0); }
-        60% { transform: scale(1.25,1.25) translateY(0px); }
-    }
-
-    .flip-back {
-        transform: rotateY(180deg);
-    }
-
-    .aniMatch {
-        animation: aniMatch 1s ease;
-    }
-
-    @keyframes aniMatch {
-        20% {transform: rotateY(180deg)  translateY(-15px);}
-        35% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
-        50% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
-        65% {transform: rotateY(180deg)  translateY(-15px) rotate(-10deg);}
-        80% {transform: rotateY(180deg)  translateY(-15px) rotate(10deg);}
-    }
-
-    .aniNoMatch {
-        animation: aniNoMatch 0.5s ease;
-    }
-
-    @keyframes aniNoMatch {
-         0% {transform: rotateY(180deg) translateX(-10px);}
-        25% {transform: rotateY(180deg) translateX(10px);}
-        50% {transform: rotateY(180deg) translateX(-10px);}
-        75% {transform: rotateY(180deg) translateX(10px);}
-    }
-
-
-/*----- cards--face designs -----------------------------*/
-
-    .glyph--center {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2em;
-    }
-
-    .glyphicon {     /*from bootstrap.js*/
-        position: relative;
-        display: inline-block;
-        font-family: 'Glyphicons Halflings';
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    @font-face {      /*from bootstrap.js*/
-        font-family: 'Glyphicons Halflings';
-        src: url('../fonts/glyphicons-halflings-regular.eot');
-        src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-            url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'),
-            url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
-            url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-            url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-    }
-
-
 /*----- footer ------------------------------------------*/
 
     .footer {

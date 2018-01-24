@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Memory Game</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles2.css">
 </head>
 <body>
 
@@ -28,9 +28,11 @@
         </div>
     </div>
 
-    <div class="container">
 
-        <div class="row header col-span-12" id="header">
+
+<div class="container-new">
+
+        <div class="row-new header " id="header">
             <div class="header__left">
                 <span  onclick="openMenu()">
                     &#9776
@@ -41,30 +43,42 @@
             </div>
             <div class="header__right">
             </div>
-            <hr class="header__hr">
-            </hr>
         </div>
 
-        <div class="main-grid col-span-12" id="main">
-            <div class="score" id="scoreboard">
-                <h4>
-                    Turns this game: <span id="score">0</span>
-                </h4>
+        <div class="row-new header">
+            <hr class="header__hr"></hr>
+        </div>
+
+        <div class="row-new header">
+            <div class="stats-bar" id="turns">
+                Turns:
+            </div>
+            <div class="stats-bar">
+                stars here
+            </div>
+            <div class="stats-bar" id="time">
+                time:
             </div>
 
-            <div  id="field">
-                <div class="card-grid" id="card-grid">
-                </div>
+            <div class="stats-bar">
+                best score:
             </div>
-
+            <div class="stats-bar">
+                fastest game:
+            </div>
         </div>
 
-        <div class="footer col-span-12" id="footer">
-            <hr class="footer__hr"></hr>
-            <h5>James Yech</h5>
-        </div>
 
-    </div>  <!-- end of container -->
+
+
+    <div id="field">
+        <div id="card-grid">
+
+        </div>
+    </div>
+</div>
+
+
 
     <div class="winModal" id="modal" >
         <div class="modal__content">
@@ -80,7 +94,7 @@
         </div>
     </div>
 
-    <script src="js/mgame.js"></script>
+    <script src="js/mgame2.js"></script>
 
 </body>
 </html>

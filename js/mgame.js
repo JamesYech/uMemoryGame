@@ -5,6 +5,10 @@ var turns=-1;
 var matches=0;
 var designChoice="glyphs";
 var faceDesign=[];
+var gameSeconds=0;
+var gameMinutes=0;
+var gameHours =0;
+var myTime;
 
 function setFaceDesign() {
     faceDesign=[];
@@ -63,57 +67,81 @@ function buildGrid() { //on load and on reset
     turns=-1;
     matches=0;
 
+    gameSeconds=0;
+    gameMinutes=0;
+    gamehours=0;
+
+
+
     updateTurns();
     buildIconArray();
+    myTime=setInterval(gameTimer, 1000);
 
     document.getElementById("card-grid").remove();
 
     let newCardGrid=document.createElement('div');
+    let z=1;
+    for (let x=0; x<=3; x++) {
+        let newRowDiv = document.createElement('div');
 
-    for (let i = 0; i <= 15; i++) {
-        let newWrapDiv = document.createElement('div');
-        let newFrontDiv = document.createElement('div');
-        let newBackDiv = document.createElement('div');
-        let newBackP = document.createElement('p');
 
-        //build back
-            switch(designChoice) {
-                case "dogs":
-                case "flowers":
-                    newBackDiv.style.backgroundImage="url("+cards[i].iconString+")";
-                    break;
+        for (let i=(x*4); i <=(x*4)+3; i++) {
+            z+=1;
 
-                default:
-                    newBackP.classList.add("glyph--center");
-                    newBackP.classList.add("glyphicon");
-                    newBackP.classList.add(cards[i].iconString);
-                    newBackDiv.appendChild(newBackP);
-            }
-            newBackDiv.classList.add("card");
-            newBackDiv.classList.add("card__back");
+            let newWrapDiv = document.createElement('div');
+            let newFrontDiv = document.createElement('div');
+            let newBackDiv = document.createElement('div');
+            let newBackP = document.createElement('p'); //********
 
-        //build front
-            newFrontDiv.classList.add("card");
-            newFrontDiv.classList.add("card__front");
-            newFrontDiv.classList.add("card__front--shadow");
+            //build back
+                switch(designChoice) {
+                    case "dogs":
+                    case "flowers":
+                        newBackDiv.style.backgroundImage="url("+cards[i].iconString+")";
+                        newBackDiv.style.backgroundSize="cover";
+                        break;
 
-        //build wrapper
-            newWrapDiv.classList.add("card");
-            newWrapDiv.classList.add("card__wrapper");
-            newWrapDiv.id=i;
-            newWrapDiv.addEventListener('click', function(){ cardClicked(this);});
-            newWrapDiv.appendChild(newFrontDiv);
-            newWrapDiv.appendChild(newBackDiv);
+                    default:
+                        newBackP.classList.add("glyph--center");
+                        newBackP.classList.add("glyphicon");
+                        newBackP.classList.add(cards[i].iconString);
+                        newBackDiv.appendChild(newBackP);
+                }
+                newBackDiv.classList.add("card");
+                newBackDiv.classList.add("card__back");
 
-        //build card grid
-            newCardGrid.appendChild(newWrapDiv);
+            //build front
+                newFrontDiv.classList.add("card");
+                newFrontDiv.classList.add("card__front");
+                newFrontDiv.classList.add("card__front--shadow");
+
+            //build wrapper
+                newWrapDiv.classList.add("card");
+                newWrapDiv.classList.add("card-wrap-new");
+                newWrapDiv.id=i;
+                newWrapDiv.addEventListener('click', function(){ cardClicked(this);});
+                newWrapDiv.appendChild(newFrontDiv);
+                newWrapDiv.appendChild(newBackDiv);
+
+            //add wrapper to row
+                newRowDiv.appendChild(newWrapDiv);
+        }
+
+        //add row to card grid
+        newRowDiv.classList.add("row-new");
+        newCardGrid.appendChild(newRowDiv);
     }
 
     //append new card grid
-        newCardGrid.classList.add("card-grid");
+        //newCardGrid.classList.add("card-grid");
         newCardGrid.id = "card-grid";
         document.getElementById("field").appendChild(newCardGrid);
+
+
+
 }
+
+
 
 function buildIconArray() {
     setFaceDesign();
@@ -165,6 +193,7 @@ function onWin() {
 
 function cardClicked(e) {
     let eIndex=e.getAttribute("id");
+
     if (!(faceUp.length==2)) {  //only 2 clicks at a time please
         if (cards[eIndex].flipped=="False") {
             e.querySelector('.card__front').classList.remove('card__front--shadow');
@@ -187,8 +216,8 @@ function cardClicked(e) {
 
 function updateTurns() {
     turns+=1;
-    document.getElementById('score').innerHTML=turns;
-    return(turns);
+    document.getElementById('turns').innerHTML="Turns: "+turns;
+    //return(turns);
 }
 
 function flipUp(e) {
@@ -202,7 +231,9 @@ function isMatchTrue() {
     matches+=1;
     faceUp=[];
 
-    if (matches==8){
+    if (matches==1){
+        console.log(myTime);
+        clearInterval(myTime);
         setTimeout(onWin, 800);
     }
     //back to listening for click
@@ -232,5 +263,52 @@ function flipDown(i) {
     document.getElementById(faceUp[i]).classList.remove("flip-back");
     document.getElementById(faceUp[i]).classList.remove("aniNoMatch");
 }
+
+function gameTimer() {
+    gameSeconds += 1;
+    document.getElementById('time').innerHTML="Time: "+formatTime(gameSeconds);
+}
+
+function formatTime(seconds) {
+
+    let hStr, mStr, sStr;
+
+    if (gameSeconds>=60) {
+        gameMinutes+=1;
+        gameSeconds=0;
+        if (gameMinutes>=60) {
+            gameMinutes=0;
+            gameHours+=1;
+        }
+    }
+
+    hStr=gameHours;
+
+    if ((gameHours>0) && (gameMinutes<10)) {
+        mStr="0"+gameMinutes;
+    } else {
+        mStr=gameMinutes;
+    }
+
+    if (gameSeconds<10) {
+        sStr="0"+gameSeconds;
+    } else {
+        sStr=gameSeconds;
+    }
+
+    //console.log(gameHours,gameMinutes,gameSeconds);
+    if (gameHours==0) {
+        return(mStr+"m "+sStr+"s");
+    } else {
+        return(hStr+"h "+mStr+"m "+sStr+"s");
+    }
+
+}
+
+
+
+
+
+
 
 document.body.onload=buildGrid();
