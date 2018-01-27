@@ -20,21 +20,65 @@
         margin: 10px auto;
         text-align: center;
         box-sizing: border-box;
+        background-color: var(--color-three);
 
 
     }
+
+    :root {
 
     /*----- color reference -------------------------------
       #EB593C
       #333333
       #ABDCD6
       #FFFCEC
+
+
+      rice grain  #dacfb9
+
+      nurture green  #97af92
+
+      june day  #f5c874
+
+      homburg gray  #656c68
+
+      hearfelt  #bc4c5e
     */
+
+
+
+
+
+/*nurture green  #97af92*/
+  --color-three: #dacfb9;
+  --color-one: #bc4c5e;
+  --color-two: #97af92;
+  --color-four: #f5c874;
+  --color-five: #bc4c5e;
+  --color-shadow: #333;
+  --color-glyph: #bc4c5e;
+  --color-text: #333 ;
+  --color-asterick: #1c75ff;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .container-new {
   max-width: 600px;
   margin: auto;
-  background-color: #ABDCD6;
+  background-color: var(--color-three);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
 
 
 }
@@ -82,17 +126,14 @@
   margin: 1%;
 }
 
-.stats-bar {
-  width:20%;
-  text-align: left;
-}
+
 
 
 /*----- common ------------------------------------------*/
 
 /*    .container {
         width: 100%;
-        background-color: #abdcd6;
+        background-color: var(--color-three);
         display: inline-grid;
         grid-template-columns: repeat(12,1fr);
         grid-gap: 20px;
@@ -152,11 +193,11 @@
 .stats {
 
       border-radius: 10px;
-      background-color: #EB593C;
+      background-color: var(--color-one);
   }
 
 
-       .card-wrap-new:before
+.card-wrap-new:before
 
    {
     content: "";
@@ -185,19 +226,19 @@
     right: 0;
   }
   .card__front {
-      background-color: #333333;
+      background-color: var(--color-two);
       z-index: 2;
   }
 
   .card__front--shadow {
-      box-shadow: 2px 3px 5px 0 #333;
+      box-shadow: 2px 3px 5px 0 var(--color-shadow);
   }
 
   .card__back {
-      background-color: #EB593C;
+      background-color: var(--color-four);
       transform: rotateY(180deg);
-      box-shadow: 2px 3px 5px 0 #333;
-      color:#333;
+      box-shadow: 2px 3px 5px 0 var(--color-shadow);
+      color: var(--color-glyph);
 
   }
 
@@ -261,6 +302,24 @@
         /*left: 50%;
         transform: translateX(-50%);*/
         /*margin: auto;*/
+        /*font-size: 3rem;*/
+
+
+
+
+       /*       top:0;
+      left:0;
+          bottom: 0;
+    right: 0;*/
+    }
+
+   .glyph--card {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        /*left: 50%;
+        transform: translateX(-50%);*/
+        /*margin: auto;*/
         font-size: 3rem;
 
 
@@ -272,6 +331,8 @@
     right: 0;*/
     }
 
+
+
     .glyphicon {     /*from bootstrap.js*/
         /*position: relative;*/
         /*display: inline-block;*/
@@ -282,6 +343,12 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    .glyph--color {
+      color: var(--color-asterick);
+    }
+
+
 
     @font-face {      /*from bootstrap.js*/
         font-family: 'Glyphicons Halflings';
@@ -309,47 +376,152 @@
     }
 
 
+
+
 /*----- header ------------------------------------------*/
 
     .header {
-        background-color: #EB593C;
-        color: #ABDCD6;
+        background-color: var(--color-one);
+        color: var(--color-three);
     }
 
     .header__left {
         cursor: pointer;
-        font-size: 30px;
+        font-size: 26px;
         text-align: left;
         margin:5px 5px;
         width: 25%;
         min-width: 40px;   /*need to get actual min width*/
+        padding-top: 5px;
     }
 
     .header__right {
         width: 25%;
         min-width: 40px;   /*need to get actual min width*/
+        text-align: right;
+        cursor: pointer;
+        font-size: 26px;
+        margin:5px 5px;
+        padding-top: 5px;
 
     }
 
     .header__title {
         width: 50%;
         min-width: 200px;
+
+    }
+
+    .header__title h1 {
+      font-size: 3vw;
     }
 
     .header__hr {
-        background: #ABDCD6;
-        height: 2px;
+        background: var(--color-three);
+        height: 1px;
         margin: 0 0 5px 0;
         width: 100%;
     }
 
 
-    .stats__hr  {
-        background: #333;
+
+
+/*----- buttons2 ----------------------------------------*/
+/*www.sitepoint.com/modern-css-buttons*/
+.suit_and_tie {
+  /* font */
+  color: var(--color-text);
+  font-size: 20px;
+  /*font-family: helvetica;*/
+
+  /* remove blue underline */
+  text-decoration: none;
+
+  /* border */
+  /*border: 2px solid black;*/
+  border-radius: 20px;
+  border: 1px solid var(--color-two);
+
+  /* transitions */
+  transition-duration: .2s;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+
+  /* other */
+  background-color: var(--color-three);
+  padding: 4px 30px;
+}
+
+.suit_and_tie:hover {
+  /* update text color and background color */
+  color: var(--color-three);
+  background-color: var(--color-one);
+  border: 0;
+
+
+
+   /* transitions */
+  transition-duration: .2s;
+  -webkit-transition-duration: .11s;
+  -moz-transition-duration: .2s;
+}
+
+.suit_and_tie:focus {
+
+  outline: none;
+
+
+
+    }
+
+
+.variation-a {
+  display: inline-block;
+  height: 3em;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/*----- stats -------------------------------------------*/
+
+.stars ul {
+  list-style: none;
+  text-align: center;
+}
+
+.stars ul li {
+  display: inline-block;
+}
+
+   .stats__hr  {
+        background: var(--color-two);
         height: 0.5px;
         margin: 5px 0 5px 0;
         width: 75%;
     }
+
+    .stats-bar {
+  width:100%;
+  text-align: left;
+}
+
+    .stats__turns {
+      width: 33%;
+      text-align: center;
+    }
+
+    .stats__time {
+      width: 33%;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    .stats__best {
+      width: 33%;
+      text-align: center;
+    }
+
 
 /*----- main grid ---------------------------------------*/
 
@@ -369,7 +541,7 @@
         grid-auto-rows: 6em;  /*100px*/
         width: 100%;
         display: grid;
-        padding: 0;
+        padding:  0;
         grid-template-columns: repeat(4,6em); /*100px*/
     }
 
@@ -380,12 +552,13 @@
         width: 0;
         position: fixed;
         z-index: 1;
-        background-color: #abdcd6;
+        background-color: var(--color-three);
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 40px;
-        box-shadow: 2px 3px 5px 0 #333;
-        color: #333;
+        box-shadow: 2px 3px 5px 0 var(--color-shadow);
+        color: var(--color-text);
+
     }
 
     .sidemenu .closebtn {
@@ -399,10 +572,17 @@
         cursor: pointer;
     }
 
+    .reset-top-marks {
+      text-decoration: none;
+      cursor: pointer;
+      color: var(--color-text);
+      padding-top: 10px;
+
+    }
     .control-group {
       display: inline-block;
       vertical-align: top;
-      background: #abdcd6;
+      background: var(--color-three);
       text-align: left;
       width: 150px;
       height: auto;
@@ -411,10 +591,10 @@
     .control {
       display: block;
       position: relative;
-      padding-left: 30px;
-      margin-top: 15px;
+      padding-left: 33px;  /*30*/
+      margin-bottom: 10px;  /*15*/
       cursor: pointer;
-      font-size: 18px;
+      font-size: 18px;  /*18*/
     }
 
     .control input {  /*//hides default formatting*/
@@ -425,10 +605,10 @@
 
     .control__indicator {
       position: absolute;
-      top: 2px;
-      left: 0;
-      height: 20px;
-      width: 20px;
+      top: 3px;  /*2*/
+      left: 10px;  /*0*/
+      height: 14px;  /*20*/
+      width: 14px;  /*20*/
       background: #e6e6e6;
     }
 
@@ -442,12 +622,12 @@
     }
 
     .control input:checked ~ .control__indicator {
-      background: #EB593C;
+      background: var(--color-one);
     }
 
     .control:hover input:not([disabled]):checked ~ .control__indicator,
     .control input:checked:focus ~ .control__indicator {
-      background: #0e647d;
+      /*background: #0e647d;*/
     }
 
     .control__indicator:after {
@@ -461,8 +641,8 @@
     }
 
     .control--radio .control__indicator:after {  /*create center dot*/
-      left: 7px;
-      top: 7px;
+      left: 4px;  /*7*/
+      top: 4px;  /*7*/
       height: 6px;
       width: 6px;
       border-radius: 50%;
@@ -472,12 +652,13 @@
 
     .footer {
         width: 100%;
-        color: #EB593C;
-        background-color: #ABDCD6;
+        color: var(--color-one);
+        background-color: var(--color-three);
+        text-align: left;
     }
 
     .footer__hr {
-        background-color: #EB593C;
+        background-color: var(--color-one);
         height: 2px;
         margin: 5px 0 5px;
     }
@@ -504,8 +685,8 @@
         top: 50%;
         border-radius: 5px;
         transform: translateY(-50%);
-        background-color: #abdcd6;
-        color: #333;
+        background-color: var(--color-three);
+        color: var(--color-two);
         width: 300px;
         height: 300px;
         /*maybe add a little header boarder*/
@@ -522,21 +703,229 @@
 
     .close:hover,
     .close:focus {
-        color: #333;
+        color: var(--color-two);
         text-decoration: none;
         cursor: pointer;
     }
 
-    .row__modal {
+/*    .row__modal {
         display: inline-block;
         grid-gap: 10px;
-    }
+    }*/
+
+  /*  .row__modal--left {
+        display: block;
+        grid-gap: 10px;
+        align-content: left;
+    }*/
+
+/*----- modal common ------------------------------------*/
+
+    /*.row__modal {
+        display: inline-block;
+        grid-gap: 10px;
+    }*/
 
     .row__modal--left {
         display: block;
         grid-gap: 10px;
         align-content: left;
     }
+
+    /*over__modal and winModal should be here as well*/
+
+
+/*----- game over modal ---------------------------------*/
+/*----- over__ ------------------------------------------*/
+
+
+.row__modal {  /*row*/
+  width: 100%;
+  /*height: 100%;*/
+  display: flex;
+  flex-wrap: nowrap;
+             justify-content: center;
+  align-items: center;
+
+}
+   .over__modal {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: 0.5s;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .over__content {
+        position: relative;
+        top: 50%;
+        border-radius: 5px;
+        transform: translateY(-50%);
+        background-color: var(--color-three);
+        color: var(--color-text);
+        width: 50%;
+
+        /*maybe add a little header boarder*/
+        display: inline-grid;
+        /*padding:0 20px 20px 20px;*/
+
+    }
+
+ .over-header {
+    width: 100%;
+    background-color: var(--color-one);
+    color: var(--color-three);
+    font-size: 3vmax;
+    border-radius: 5px 5px 0 0;
+    padding: 2px 0 2px 0 ;
+    height: 1.75em;
+  }
+
+
+/*    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #333;
+        text-decoration: none;
+        cursor: pointer;
+    }*/
+
+/*.trophy2:before {
+    content: "";
+    display: block;
+    padding-top: 90%;
+  }*/
+
+
+    .trophy2 {
+      /*width: 33%;*/
+      /*justify-content:  right;*/
+      /*grid-column: span 2;*/
+      grid-column: 1/3;
+      grid-row: 1/6;
+
+   /*   grid-row: span 5;
+      grid-column: 1 span 2;*/
+    /*  background-image: url("../img/winner.png");
+      background-repeat: no-repeat;
+      background-size: cover;*/
+      /*height: 200px;*/
+
+    }
+
+    .modal__stats {
+      width: 67%;
+     }
+
+.ms-header {
+  font-size: 1em;
+  border-top: 1px solid var(--color-two);
+  border-bottom: 1px solid var(--color-two);
+  grid-column: span 3;
+  grid-row: 1;
+  justify-content: center;
+}
+
+.ms-header2 {
+  font-size: 1em;
+
+  grid-column: span 3;
+  grid-row: 2;
+}
+
+
+
+
+
+.stats__container {
+
+    display: inline-grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-gap: 1px;
+        /*grid-auto-rows: minmax(50px, auto);*/
+        /*min-width: 300px;*/
+        width: 100%;
+        font-size: 1em;
+        margin: 15px 15px 15px 0;
+        justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+
+}
+
+.stats__container .align-rt {
+  text-align: right;
+  padding-right: 10px;
+
+}
+
+
+
+
+.ms__row {
+  width: 100%;
+
+}
+.ms__row--highligh {
+  /*change background color
+  round corners*/
+}
+
+
+.modal__content--hidden {
+  display: none;
+}
+
+.modal__content--visible {
+  display: block;
+}
+
+/*----- rest game modal ---------------------------------*/
+/*----- reset__ -----------------------------------------*/
+
+   .reset__modal {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: 0.5s;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+
+  .reset-header {
+    width: 100%;
+    background-color: var(--color-one);
+    color: var(--color-three);
+    font-size: 2em;
+    border-radius: 5px 5px 0 0;
+    padding: 2px 0 2px 0 ;
+    height: 1.75em;
+  }
+
+  .reset-text {
+    height: 5em;
+    font-size: 1.5em;
+    padding: 0 20px 0 20px;
+
+  }
 
 
 /*----- glyphicons used -- from bootstrap.js ------------*/
@@ -550,6 +939,7 @@
 .glyphicon-heart:before {content: "\e005";}
 .glyphicon-film:before {content: "\e009";}
 .glyphicon-star:before {content: "\e006";}
+.glyphicon-star-empty:before {content: "\e007";}
 .glyphicon-home:before {content: "\e021";}
 .glyphicon-flag:before {content: "\e034";}
 .glyphicon-camera:before {content: "\e046";}
@@ -566,7 +956,49 @@
 .glyphicon-apple:before {content: "\f8ff";}
 .glyphicon-hourglass:before {content: "\231b";}
 .glyphicon-sunglasses:before {content: "\e240";}
+.glyphicon-repeat:before {content: "\e030";}
+.glyphicon-menu-hamburger:before {content: "\e236";}
+.glyphicon-asterisk:before {content: "\002a";}
 
 
 
+@media screen and (max-width: 599px) {
 
+      .over__content {
+        width: 100%;
+      }
+
+    /*  .footer {
+        display: none;
+        z-index: -1;
+      }*/
+
+        .header__title h1 {
+      font-size: 6vw;
+    }
+
+    .stats__best {
+      display: none;
+    }
+
+     .stats__turns {
+      width: 50%;
+
+    }
+
+    .stats__time {
+      width: 50%;
+
+    }
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 799px) {
+
+      .over__content {
+        width: 75%;
+      }
+
+
+
+      }
