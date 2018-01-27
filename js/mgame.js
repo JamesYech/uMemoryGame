@@ -302,6 +302,8 @@ function gameOver() {
     let modal=document.getElementById('overModal');
     let okButton=document.querySelectorAll('#overModal #over-ok')[0];
 
+    document.addEventListener('keydown', escClose);
+
     //clear astericks from previous games
 
       if (newBestTurns) {
@@ -385,10 +387,24 @@ function gameOver() {
             buildGrid();
         }
     }
+
+    function escClose(event) {
+        const key = event.key;
+        if (key === "Escape") {
+            modal.style.display = "none";
+            document.removeEventListener('keydown', escClose);
+            buildGrid();
+        }
+    }
+
+
+
 }
 
 function resetGame() {
     clearInterval(myTime);
+
+    document.addEventListener('keydown', escClose);
 
     let modal=document.getElementById('resetModal');
     let noButton=document.querySelectorAll('#resetModal #reset-no')[0];
@@ -406,6 +422,17 @@ function resetGame() {
     yesButton.onclick=function() {
         modal.style.display = "none";
         buildGrid();
+    }
+
+    function escClose(event) {
+        const key = event.key;
+        if (key === "Escape") {
+            modal.style.display = "none";
+            if (gameSeconds>0) {
+               myTime=setInterval(gameTimer, 1000);
+            }
+            document.removeEventListener('keydown', escClose);
+        }
     }
 
    window.onclick = function(event) {
@@ -489,7 +516,7 @@ function isMatchTrue() {
     matches+=1;
     faceUp=[];
 
-    if (matches==8){
+    if (matches==1){
 
         clearInterval(myTime);
         saveTopMarks();
