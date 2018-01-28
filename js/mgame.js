@@ -51,12 +51,12 @@ function buildGrid() {
 
     let newCardGrid=document.createElement('div');
     for (let x=0; x<=3; x++) {  //layout rows
-        let newRowDiv = document.createElement('div');
-        for (let i=(x*4); i <=(x*4)+3; i++) { //layout columns
-            let newWrapDiv = document.createElement('div');
-            let newFrontDiv = document.createElement('div');
-            let newBackDiv = document.createElement('div');
-            let newBackP = document.createElement('p');
+        let newRowDiv=document.createElement('div');
+        for (let i=(x*4); i<=(x*4)+3; i++) { //layout columns
+            let newWrapDiv=document.createElement('div');
+            let newFrontDiv=document.createElement('div');
+            let newBackDiv=document.createElement('div');
+            let newBackP=document.createElement('p');
 
             //build back of card
             switch(designChoice) {
@@ -96,7 +96,7 @@ function buildGrid() {
         newCardGrid.appendChild(newRowDiv);
     }
     //append new card grid
-    newCardGrid.id = "card-grid";
+    newCardGrid.id="card-grid";
     document.getElementById("field").appendChild(newCardGrid);
 }
 
@@ -110,20 +110,20 @@ function buildIconArray() {
     let card={};
     let designCount=Object.keys(faceDesign).length;  //how many face designs available
 
-    for(let i=0; i<= designCount-1; i++) {
+    for(let i=0; i<=designCount-1; i++) {
         numArray.push(i);
     }
 
     //randomly sort all face options
-    numArray.sort(function(a, b){return 0.5 - Math.random()});
+    numArray.sort(function(a, b){return 0.5-Math.random()});
     //grab the first eight face options and duplicate so there are 16
-    let iconArray = numArray.slice(0,8);
-    iconArray = iconArray.concat(iconArray);
+    let iconArray=numArray.slice(0,8);
+    iconArray=iconArray.concat(iconArray);
     //randomly sort the 16 faces
-    iconArray.sort(function(a, b){return 0.5 - Math.random()});
+    iconArray.sort(function(a, b){return 0.5-Math.random()});
 
     for (let i=0; i<=15; i++) {
-        card = {
+        card={
             flipped: "False",
             iconString: faceDesign[iconArray[i]]
         }
@@ -136,7 +136,7 @@ function setFaceDesign() {
     faceDesign=[];
     switch (designChoice) {
         case "dogs":
-         faceDesign = [
+         faceDesign=[
             "./img/dog1.jpg","./img/dog2.jpg","./img/dog3.jpg",
             "./img/dog4.jpg","./img/dog5.jpg","./img/dog6.jpg","./img/dog7.jpg",
             "./img/dog8.jpg","./img/dog9.jpg","./img/dog10.jpg","./img/dog11.jpg"
@@ -144,7 +144,7 @@ function setFaceDesign() {
         break;
 
         case "flowers":
-            faceDesign = [
+            faceDesign=[
                 "./img/flower1.jpg", "./img/flower2.jpg","./img/flower4.jpg",
                 "./img/flower5.jpg","./img/flower6.jpg","./img/flower7.jpg","./img/flower8.jpg",
                 "./img/flower9.jpg","./img/flower10.jpg","./img/flower11.jpg","./img/flower12.jpg",
@@ -153,7 +153,7 @@ function setFaceDesign() {
             break;
 
         default:
-            faceDesign = [
+            faceDesign=[
                 "glyphicon-plus","glyphicon-euro","glyphicon-envelope","glyphicon-cloud",
                 "glyphicon-music","glyphicon-search","glyphicon-heart","glyphicon-film",
                 "glyphicon-star","glyphicon-home","glyphicon-flag","glyphicon-camera",
@@ -213,7 +213,7 @@ function cardClicked(e) {
         myTime=setInterval(gameTimer, 1000);
     }
     if (!(faceUp.length===2)) {  //only 2 clicks at a time please
-        if (cards[eIndex].flipped=="False") {
+        if (cards[eIndex].flipped==="False") {
             e.classList.add("bounce-up");
             cards[e.getAttribute("id")].flipped="True";
             faceUp.push(e.getAttribute("id"));
@@ -247,7 +247,7 @@ function cardsMatch() {
     matches+=1;
     faceUp=[];
 
-    if (matches==8){
+    if (matches===8){
         //game is over
         clearInterval(myTime);  //stop timer
         saveTopMarks();  //compare and save top marks
@@ -285,7 +285,7 @@ function cardsNoMatch() {
 function saveTopMarks() {
     //compare game marks to top marks and save
     //called from cardsMatch()
-    if (bestTurns==0) {
+    if (bestTurns===0) {
         //top scores haven't been set so set equal to current game
         bestTurns=turns;
         newBestTurns=true;
@@ -294,7 +294,7 @@ function saveTopMarks() {
         bestStars=starCount;
         newBestStars=true;
 
-        if (typeof(Storage) !== "undefined") {
+        if (typeof(Storage)!=="undefined") {
             localStorage.setItem('bestTime',bestSeconds);
             localStorage.setItem('bestScore',bestTurns);
             localStorage.setItem('bestStars',bestStars);
@@ -302,7 +302,7 @@ function saveTopMarks() {
         }
     } else {
         //compare current game to top scores
-        if (turns <= bestTurns) {
+        if (turns<=bestTurns) {
             bestTurns=turns;
             newBestTurns=true;
         }
@@ -317,7 +317,7 @@ function saveTopMarks() {
             newBestStars=true;
         }
 
-        if (typeof(Storage) !== "undefined") {
+        if (typeof(Storage)!=="undefined") {
             localStorage.setItem('bestTime',bestSeconds);
             localStorage.setItem('bestScore',bestTurns);
             localStorage.setItem('bestStars',bestStars);
@@ -351,13 +351,13 @@ function gameOver() {
     modal.style.display="block";
 
     // create your-stars div
-    if ( document.getElementById('star-list') !== null) {
+    if ( document.getElementById('star-list')!==null) {
         //remove star-list div if previously created
         document.getElementById('star-list').remove();
       }
-    let newStarUl = document.createElement('ul');
-    let newStarDiv = document.createElement('div');
-    for (let x=1; x<=starCount;x++) {
+    let newStarUl=document.createElement('ul');
+    let newStarDiv=document.createElement('div');
+    for (let x=1; x<=starCount; x++) {
         let newStarli = document.createElement('li');
         let newStarSpan = document.createElement('span');
         newStarSpan.classList.add("glyphicon");
@@ -372,15 +372,15 @@ function gameOver() {
     document.getElementById('your-stars').appendChild(newStarDiv);
 
     // Create Best-Stars div
-    if ( document.getElementById('best-star-list') !== null) {
+    if ( document.getElementById('best-star-list')!==null) {
         //remove if previously created
         document.getElementById('best-star-list').remove();
        }
-    newStarUl = document.createElement('ul');
-    newStarDiv = document.createElement('div');
-    for (let x=1; x<=bestStars;x++) {
-        let newStarli = document.createElement('li');
-        let newStarSpan = document.createElement('span');
+    newStarUl=document.createElement('ul');
+    newStarDiv=document.createElement('div');
+    for (let x=1; x<=bestStars; x++) {
+        let newStarli=document.createElement('li');
+        let newStarSpan=document.createElement('span');
         newStarSpan.classList.add("glyphicon");
         newStarSpan.classList.add("glyphicon-star");
         newStarli.appendChild(newStarSpan);
@@ -398,21 +398,21 @@ function gameOver() {
     document.getElementById('your-time').innerHTML=formatTime(gameSeconds);
     document.getElementById('best-time2').innerHTML=formatTime(bestSeconds);
 
-    okButton.onclick = function() {
-        modal.style.display = "none";
+    okButton.onclick=function() {
+        modal.style.display="none";
         buildGrid();
     }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    window.onclick=function(event) {
+        if (event.target===modal) {
+            modal.style.display="none";
             buildGrid();
         }
     }
 
     function escClose(event) {
-        const key = event.key;
-        if (key === "Escape") {
-            modal.style.display = "none";
+        const key=event.key;
+        if (key==="Escape") {
+            modal.style.display="none";
             document.removeEventListener('keydown', escClose);
             buildGrid();
         }
@@ -434,18 +434,18 @@ function resetGame() {
     modal.style.display="block";
 
     noButton.onclick = function() {
-        modal.style.display = "none";
+        modal.style.display="none";
         if (gameSeconds>0) {
                myTime=setInterval(gameTimer, 1000);
         }
     }
     yesButton.onclick=function() {
-        modal.style.display = "none";
+        modal.style.display="none";
         buildGrid();
     }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    window.onclick=function(event) {
+        if (event.target===modal) {
+            modal.style.display="none";
             if (gameSeconds>0) {
                myTime=setInterval(gameTimer, 1000); //start game timer
             }
@@ -453,8 +453,8 @@ function resetGame() {
     }
 
     function escClose(event) {
-        const key = event.key;
-        if (key === "Escape") {
+        const key=event.key;
+        if (key==="Escape") {
             modal.style.display = "none";
             if (gameSeconds>0) {
                myTime=setInterval(gameTimer, 1000);  //start game timer
@@ -495,14 +495,14 @@ function updateTurns() {
 function gameTimer() {
     //updates game timer and displays in stats bar
     //called by buildGrid(), resetGame(), and cardClicked()
-    gameSeconds += 1;
+    gameSeconds+=1;
     document.getElementById('time').innerHTML="Time: "+formatTime(gameSeconds);
 }
 
 function resetTopMarks() {
     //resets locally stored top scores
     //called by onClick in menu
-    if (typeof(Storage) !== "undefined") {
+    if (typeof(Storage)!=="undefined") {
         localStorage.bestScore=0;
         localStorage.bestTime=0;
         localStorage.bestStars=1;
@@ -518,8 +518,8 @@ function openMenu() {
 function closeMenu() {
     //called from onclick and from resetGame()
     document.getElementById("side-menu").style.width="0";
-    let radios= document.getElementsByName('radios');
-    for (let i=0, length=radios.length; i<length;i++) {
+    let radios=document.getElementsByName('radios');
+    for (let i=0, length=radios.length; i<length; i++) {
         if (radios[i].checked){
             designChoice=radios[i].value;
             buildGrid();
