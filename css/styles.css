@@ -1,135 +1,258 @@
 /*----- global/default settings -------------------------*/
 
+    :root {
+        /*rice grain  #dacfb9
+        nurture green  #97af92
+        june day  #f5c874
+        homburg gray  #656c68
+        hearfelt  #bc4c5e*/
+
+        --color-three: #dacfb9;   /*main background*/
+        --color-one: #bc4c5e;     /*header background*/
+        --color-two: #97af92;     /*card backs*/
+        --color-four: #f5c874;    /*[TODO] add this to stars in stats line*/
+        --color-five: #bc4c5e;
+        --color-shadow: #333;
+        --color-glyph: #bc4c5e;
+        --color-text: #333 ;
+        --color-asterick: #1c75ff;
+    }
+
     * {                               /*white space reset*/
         margin: 0;
         padding: 0;
-    }
-
-    article,
-    body,
-    div,
-    footer,
-    header,
-    main,
-    nav,
-    section {
         box-sizing: border-box;
     }
+
+
+
+
+/*----- common ------------------------------------------*/
 
     body {
         margin: 10px auto;
         text-align: center;
         box-sizing: border-box;
         background-color: var(--color-three);
-
-
+        font-family: sans-serif;
     }
 
-    :root {
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background-color: var(--color-three);
+        box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    }
 
-    /*----- color reference -------------------------------
-      #EB593C
-      #333333
-      #ABDCD6
-      #FFFCEC
-
-
-      rice grain  #dacfb9
-
-      nurture green  #97af92
-
-      june day  #f5c874
-
-      homburg gray  #656c68
-
-      hearfelt  #bc4c5e
-    */
+    .container__row {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
 
 
+/*----- side menu controls ------------------------------*/
+
+    .sidemenu {
+        height: 195px;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        background-color: var(--color-three);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 40px;
+        box-shadow: 2px 3px 5px 0 var(--color-shadow);
+        color: var(--color-text);
+    }
+
+    .sidemenu .closebtn {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        font-size: 36px;
+        margin-left: auto;
+        text-decoration: none;
+        color: #aaa;
+        cursor: pointer;
+    }
+
+    .reset-top-marks {
+        text-decoration: none;
+        cursor: pointer;
+        color: var(--color-text);
+        padding-top: 10px;
+    }
+
+    .control-group {
+        display: inline-block;
+        vertical-align: top;
+        background: var(--color-three);
+        text-align: left;
+        width: 150px;
+        height: auto;
+    }
+
+    .control {
+        display: block;
+        position: relative;
+        padding-left: 33px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .control input {  /*//hides default formatting*/
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    .control__indicator {
+        position: absolute;
+        top: 3px;
+        left: 10px;
+        height: 14px;
+        width: 14px;
+        background: #e6e6e6;
+    }
+
+    .control--radio .control__indicator {  /*Makes the boxes round*/
+        border-radius: 50%;
+    }
+
+    .control:hover input ~ .control__indicator,
+    .control input:focus ~ .control__indicator {
+        background: #ccc;
+    }
+
+    .control input:checked ~ .control__indicator {
+        background: var(--color-one);
+    }
+
+    .control__indicator:after {
+        content: '';
+        position: absolute;
+        display: none;
+    }
+
+    .control input:checked ~ .control__indicator:after {
+        display: block;
+    }
+
+    .control--radio .control__indicator:after {  /*create center dot*/
+        left: 4px;
+        top: 4px;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background: #fff;
+    }
+
+
+/*----- header ------------------------------------------*/
+
+    .header {
+        background-color: var(--color-one);
+        color: var(--color-three);
+    }
+
+    .header__side {
+      width: 25%;
+        min-width: 40px;
+        cursor: pointer;
+        font-size: 26px;
+        margin:5px 5px;
+        padding-top: 5px;
+    }
+
+    .header__side--right {
+      text-align:  right;
+    }
+
+    .header__side--left {
+      text-align: left;
+    }
+
+    .header__title {
+        width: 50%;
+        min-width: 200px;
+    }
+
+    .header__title h1 {
+      font-size: 3vw;
+    }
+
+    .header__hr {
+        background: var(--color-three);
+        height: 1px;
+        margin: 0 0 5px 0;
+        width: 100%;
+    }
+
+
+/*----- header__stats -----------------------------------*/
+
+    .stats__stars {}
+
+    .stats__stars ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    .stats__stars ul li {
+      display: inline-block;
+    }
+
+    .stats__turns {
+      width: 33%;
+      text-align: center;
+    }
+
+    .stats__time {
+      width: 33%;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    .stats__best {
+      width: 33%;
+      text-align: center;
+    }
 
 
 
-/*nurture green  #97af92*/
-  --color-three: #dacfb9;
-  --color-one: #bc4c5e;
-  --color-two: #97af92;
-  --color-four: #f5c874;
-  --color-five: #bc4c5e;
-  --color-shadow: #333;
-  --color-glyph: #bc4c5e;
-  --color-text: #333 ;
-  --color-asterick: #1c75ff;
+/*----- main --------------------------------------------*/
 
-
-}
+/*----- card styles -------------------------------------*/
 
 
 
 
+.card-wrap-new {
 
-
-
-
-
-
-
-
-.container-new {
-  max-width: 600px;
-  margin: auto;
-  background-color: var(--color-three);
-  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-
-
-}
-
-.row-new {  /*row*/
-  width: 100%;
-  /*height: 100%;*/
-  display: flex;
-  flex-wrap: nowrap;
-             justify-content: center;
-  align-items: center;
-
-}
-
-.row-header2 {
-   width: 100%;
-  /*height: 100%;*/
-  display: flex;
-  flex-wrap: wrap;
-             justify-content: center;
-  align-items: center;
-}
-
-.card-wrap-new {    /*card*/
-  /*display: inline-block;*/
-  /*vertical-align: top;*/
-  /*background: #fff;*/
-  /*text-align: left;*/
-  /*box-shadow: 0 2px 3px rgba(0,0,0,0.1);*/
   padding: 0px;
   width: 20%;
   /*height: 20%;*/
   margin: 1.5%;
 }
 
-.stats-wrap {    /*card*/
-  display: inline-block;
-  vertical-align: top;
-  /*background: #fff;*/
-  text-align: left;
-  /*box-shadow: 0 2px 3px rgba(0,0,0,0.1);*/
-  padding: 0px;
-  width: 15%;
-  height: 15%;
-  margin: 1%;
-}
+.card-wrap-new:before
+
+   {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
 
 
 
 
-/*----- common ------------------------------------------*/
+
+
+/*-----  ------------------------------------------*/
 
 /*    .container {
         width: 100%;
@@ -139,21 +262,8 @@
         grid-gap: 20px;
     }*/
 
-    .container {
-  width: 100%;
-  /*height: 100%;*/
-  display: flex;
-  flex-wrap: wrap;
-  /*justify-content: center;*/
-  align-items: center;
-}
 
-    .row {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+
 
     .row--nowrap {
       width: 100%;
@@ -162,9 +272,6 @@
       /*align-items: center;*/
     }
 
-  .field-new {
-
-  }
 
 /*----- cards--styles -----------------------------------*/
     /*flipping code based on David Walsh -- davidwalsh.name/demo/css-flip.php*/
@@ -190,20 +297,14 @@
       transition: 0.6s;
   }
 
-.stats {
+/*.stats {
 
       border-radius: 10px;
       background-color: var(--color-one);
-  }
+  }*/
 
 
-.card-wrap-new:before
 
-   {
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
 
   .stats:before {
     content: "";
@@ -265,7 +366,8 @@
         60% { transform: scale(1.25,1.25) translateY(0px); }
     }
 
-    .flip-back {
+    .flip-up {
+        /*flip face up*/
         transform: rotateY(180deg);
     }
 
@@ -361,67 +463,10 @@
     }
 
 
-/*----- column spans ------------------------------------*/
-
-    .col-span-8 {
-        grid-column: span 8;
-    }
-
-    .col-span-2 {
-        grid-column: span 2;
-    }
-
-    .col-span-12 {
-        grid-column: span 12;
-    }
 
 
 
 
-/*----- header ------------------------------------------*/
-
-    .header {
-        background-color: var(--color-one);
-        color: var(--color-three);
-    }
-
-    .header__left {
-        cursor: pointer;
-        font-size: 26px;
-        text-align: left;
-        margin:5px 5px;
-        width: 25%;
-        min-width: 40px;   /*need to get actual min width*/
-        padding-top: 5px;
-    }
-
-    .header__right {
-        width: 25%;
-        min-width: 40px;   /*need to get actual min width*/
-        text-align: right;
-        cursor: pointer;
-        font-size: 26px;
-        margin:5px 5px;
-        padding-top: 5px;
-
-    }
-
-    .header__title {
-        width: 50%;
-        min-width: 200px;
-
-    }
-
-    .header__title h1 {
-      font-size: 3vw;
-    }
-
-    .header__hr {
-        background: var(--color-three);
-        height: 1px;
-        margin: 0 0 5px 0;
-        width: 100%;
-    }
 
 
 
@@ -483,44 +528,7 @@
   padding-bottom: 20px;
 }
 
-/*----- stats -------------------------------------------*/
 
-.stars ul {
-  list-style: none;
-  text-align: center;
-}
-
-.stars ul li {
-  display: inline-block;
-}
-
-   .stats__hr  {
-        background: var(--color-two);
-        height: 0.5px;
-        margin: 5px 0 5px 0;
-        width: 75%;
-    }
-
-    .stats-bar {
-  width:100%;
-  text-align: left;
-}
-
-    .stats__turns {
-      width: 33%;
-      text-align: center;
-    }
-
-    .stats__time {
-      width: 33%;
-      text-align: center;
-      font-size: 1.5em;
-    }
-
-    .stats__best {
-      width: 33%;
-      text-align: center;
-    }
 
 
 /*----- main grid ---------------------------------------*/
@@ -547,107 +555,7 @@
 
 /*----- menu control ------------------------------------*/
 
-    .sidemenu {
-        height: 195px;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        background-color: var(--color-three);
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 40px;
-        box-shadow: 2px 3px 5px 0 var(--color-shadow);
-        color: var(--color-text);
 
-    }
-
-    .sidemenu .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: auto;
-        text-decoration: none;
-        color: #aaa;
-        cursor: pointer;
-    }
-
-    .reset-top-marks {
-      text-decoration: none;
-      cursor: pointer;
-      color: var(--color-text);
-      padding-top: 10px;
-
-    }
-    .control-group {
-      display: inline-block;
-      vertical-align: top;
-      background: var(--color-three);
-      text-align: left;
-      width: 150px;
-      height: auto;
-    }
-
-    .control {
-      display: block;
-      position: relative;
-      padding-left: 33px;  /*30*/
-      margin-bottom: 10px;  /*15*/
-      cursor: pointer;
-      font-size: 18px;  /*18*/
-    }
-
-    .control input {  /*//hides default formatting*/
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-    }
-
-    .control__indicator {
-      position: absolute;
-      top: 3px;  /*2*/
-      left: 10px;  /*0*/
-      height: 14px;  /*20*/
-      width: 14px;  /*20*/
-      background: #e6e6e6;
-    }
-
-    .control--radio .control__indicator {  /*Makes the boxes round*/
-      border-radius: 50%;
-    }
-
-    .control:hover input ~ .control__indicator,
-    .control input:focus ~ .control__indicator {
-      background: #ccc;
-    }
-
-    .control input:checked ~ .control__indicator {
-      background: var(--color-one);
-    }
-
-    .control:hover input:not([disabled]):checked ~ .control__indicator,
-    .control input:checked:focus ~ .control__indicator {
-      /*background: #0e647d;*/
-    }
-
-    .control__indicator:after {
-      content: '';
-      position: absolute;
-      display: none;
-    }
-
-    .control input:checked ~ .control__indicator:after {
-      display: block;
-    }
-
-    .control--radio .control__indicator:after {  /*create center dot*/
-      left: 4px;  /*7*/
-      top: 4px;  /*7*/
-      height: 6px;
-      width: 6px;
-      border-radius: 50%;
-      background: #fff;
-    }
 /*----- footer ------------------------------------------*/
 
     .footer {

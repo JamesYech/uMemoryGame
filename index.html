@@ -8,23 +8,18 @@
 </head>
 <body>
 
-    <!-- Menu input controls from https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes -->
+<div class="container">
+    <nav>
+    <div  class="sidemenu" id="side-menu">
 
-
-
-
-<div class="container-new">
-
-    <div  class="sidemenu" id="mySidemenu">
         <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+
         <div class="control-group">
             <h3>Card Designs</h3>
-
             <label class="control control--radio">Glyphs
                 <input type="radio" name="radios" value="glyphs" checked="checked" onclick="closeMenu()"/>
                 <div class="control__indicator"></div>
             </label>
-
             <label class="control control--radio">Dogs
                 <input type="radio" name="radios" value="dogs" onclick="closeMenu()"/>
                 <div class="control__indicator"></div>
@@ -34,42 +29,41 @@
                 <div class="control__indicator"></div>
             </label>
         </div>
-        <div class="control-group ">
+
+        <div>
             <a href="javascript:void(0)" class="reset-top-marks" onclick="resetTopMarks()"><h3>Reset Top Marks</h3></a>
         </div>
     </div>
+    </nav>
 
-        <div class="row-new header " id="header">
-            <div class="header__left">
+
+
+    <header class="header">
+        <div class="container__row">
+            <div class="header__side header__side--left">
                 <span class="glyph--center glyphicon glyphicon-menu-hamburger" onclick="openMenu()"></span>
             </div>
             <div class="header__title">
                 <h1>The Memory Game!</h1>
             </div>
-            <div class="header__right">
+            <div class="header__side header__side--right">
                 <span class="glyphicon glyphicon-repeat" onclick="resetGame()">
                 </span>
             </div>
         </div>
 
-        <div class="row-new header">
+        <div class="container__row">
             <hr class="header__hr"></hr>
         </div>
 
-
-
-        <div class="row-new header">
+        <div class="container__row">
             <div class="stats__turns">
                 <div id="turns"></div>
-
-
-                <div class="stars">
+                <div class="stats__stars">
                      <ul >
-                        <li><span class= "glyphicon glyphicon-star" id="star1"></span></li>
-
-                        <li><span class= "glyphicon glyphicon-star" id="star2"></span></li>
-
-                        <li><span class= "glyphicon glyphicon-star" id="star3"></span></li>
+                        <li><span class="glyphicon glyphicon-star" id="star1"></span></li>
+                        <li><span class="glyphicon glyphicon-star" id="star2"></span></li>
+                        <li><span class="glyphicon glyphicon-star" id="star3"></span></li>
                     </ul>
                 </div>
             </div>
@@ -83,119 +77,101 @@
                 <div id="best-time"></div>
             </div>
         </div>
+    </header>
 
+    <main id="field">
+        <!-- this is populated by javascript -->
+            <div id="card-grid">
+            </div>
+    </main>
 
-
-
-
-
-    <div id="field">
-        <div id="card-grid">
-
-        </div>
-    </div>
-
-<div class="footer " id="footer">
+    <footer>
+        <div class="footer" id="footer">
             <hr class="footer__hr"></hr>
-            <p>James Yech: <a href="https://github.com/JamesYech">Github repositor</a></p>
+            <p>James Yech: <a href="https://github.com/JamesYech">Github repository</a></p>
             <p>Menu Controls: <a href="https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes">Kenan Yusuf</a></p>
             <p>Card Flipping: <a href="https://davidwalsh.name/css-flip">David Walsh</a></p>
             <p>Glyphicons: <a href="https://www.w3schools.com/icons/bootstrap_icons_glyphicons.asp">Bootstrap</a></p>
             <p>Dog and Flower Photos: Taken by James Yech </p>
         </div>
-
+    <footer>
 
 </div>  <!-- container -->
 
+<!-- [TODO]  all of these classes need to be renamed appropriately -->
+<div class="over__modal" id="overModal">
+    <div class="over__content"> <!-- [TODO] change to modal__container -->
+        <div class="row__modal over-header">
+            You Won the Memory Game!
+        </div>
 
-
-
-
-
-    <div class="over__modal" id="overModal">
-        <div class="over__content"> <!-- maybe use container -->
-            <div class="row__modal over-header">
-                You Won the Memory Game!
-            </div>
-
-            <div class="row__modal">
-
-               <!--  <div class="trophy2">
+        <div class="row__modal">
+            <div class="stats__container">
+                <div class="trophy2">
                     <img src="./img/winner.png" alt="Winners' Trohpy">
-                </div> -->
-
-                <div class="stats__container">
-                    <div class="trophy2">
-                        <img src="./img/winner.png" alt="Winners' Trohpy">
-                    </div>
-
-                    <div class="ms-header">  <!-- h1 -->
-                        <h2>Game Stats</h2>
-                    </div>
-
-                    <div></div>
-                    <div >Yours</div>
-                    <div >Best</div>
-
-                    <div class="align-rt"><span id="turns-record"></span>Turns:</div>
-                    <div id="your-turns"></div>
-                    <div id="best-turns"></div>
-
-                    <div class="align-rt"><span id="stars-record"></span>Stars:</div>
-                    <div id="your-stars"></div>
-                    <div id="best-stars"></div>
-
-                    <div class="align-rt"><span id="time-record"></span>Time:</div>
-                    <div id="your-time"></div>
-                    <div id="best-time2"></div>
-                </div>  <!-- stats-container -->
-
-            </div>  <!-- modal row -->
-
-
-
-              <div class="row__modal">
-                <div class="variation-a">
-                    <button class="suit_and_tie" id="over-ok">
-                        OK
-                    </button>
                 </div>
 
-            </div>
-        </div>  <!-- over-content -->
-    </div>  <!-- modal -->
-
-
-
-    <!-- good to go for the most part -->
-    <div class="reset__modal" id="resetModal">
-        <div class="over__content"> <!-- maybe use container -->
-            <div class="row__modal reset-header">
-                Reset Game
-            </div>
-            <div class="row__modal reset-text">
-                <p>
-                    Do you really want to reset the game and lose your current progress?
-                </p>
-            </div>
-            <div class="row__modal">
-                <div class="variation-a">
-                    <button class="suit_and_tie" id="reset-yes">
-                        Yes
-                    </button>
+                <div class="ms-header">
+                    <h2>Game Stats</h2>
                 </div>
-                <div class="variation-a">
-                    <button class="suit_and_tie" id="reset-no">
-                        No
-                    </button>
-                </div>
+
+                <div></div> <!-- empty div for alignment -->
+                <div>Yours</div>
+                <div>Best</div>
+
+                <div class="align-rt"><span id="turns-record"></span>Turns:</div>
+                <div id="your-turns"></div>
+                <div id="best-turns"></div>
+
+                <div class="align-rt"><span id="stars-record"></span>Stars:</div>
+                <div id="your-stars"></div>
+                <div id="best-stars"></div>
+
+                <div class="align-rt"><span id="time-record"></span>Time:</div>
+                <div id="your-time"></div>
+                <div id="best-time2"></div>
+            </div>  <!-- stats-container -->
+        </div>  <!-- modal row -->
+
+        <div class="row__modal">
+            <div class="variation-a">  <!-- [TODO] rename variation-a -->
+                <button class="suit_and_tie" id="over-ok">  <!-- [TODO] rename suit_and_tie -->
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>  <!-- over-content -->
+
+</div>  <!-- modal -->
+
+<!-- good to go for the most part -->
+<div class="reset__modal" id="resetModal">
+    <div class="over__content"> <!-- [TODO] change to modal__container -->
+        <div class="row__modal reset-header">
+            Reset Game
+        </div>
+        <div class="row__modal reset-text">
+            <p>
+                Do you really want to reset the game and lose your current progress?
+            </p>
+        </div>
+        <div class="row__modal">  <!-- [TODO] rename button classes -->
+            <div class="variation-a">
+                <button class="suit_and_tie" id="reset-yes">
+                    Yes
+                </button>
+            </div>
+            <div class="variation-a">
+                <button class="suit_and_tie" id="reset-no">
+                    No
+                </button>
             </div>
         </div>
     </div>
 
+</div>   <!-- modal -->
 
+<script src="js/mgame.js"></script>
 
-    <script src="js/mgame.js"></script>
-<!-- suit_and_tie -->
 </body>
 </html>
