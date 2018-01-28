@@ -67,7 +67,7 @@ function buildGrid() {
                     break;
 
                 default:
-                    newBackP.classList.add("glyph--card");
+                    newBackP.classList.add("card__back--glyph");
                     newBackP.classList.add("glyphicon");
                     newBackP.classList.add(cards[i].iconString);
                     newBackDiv.appendChild(newBackP);
@@ -82,7 +82,7 @@ function buildGrid() {
 
             //build wrapper for card
             newWrapDiv.classList.add("card");
-            newWrapDiv.classList.add("card-wrap-new");
+            newWrapDiv.classList.add("card__wrapper");
             newWrapDiv.id=i;
             newWrapDiv.addEventListener('click', function(){ cardClicked(this);});
             newWrapDiv.appendChild(newFrontDiv);
@@ -286,7 +286,7 @@ function cardsNoMatch() {
         document.getElementById(faceUp[i]).classList.add("aniNoMatch");
         document.getElementById(faceUp[i]).classList.add("aniNoMatch");
         document.getElementById(faceUp[i]).classList.remove("bounce-up");
-        document.getElementById(faceUp[i]).classList.remove("bump");
+        //document.getElementById(faceUp[i]).classList.remove("bump");
         setTimeout(flipDown.bind(null, i), 700);
         document.getElementById(faceUp[i]).querySelector('.card__front').classList.add('card__front--shadow');
         cards[faceUp[i]].flipped="False";
