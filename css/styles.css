@@ -16,6 +16,8 @@
         --color-glyph: #bc4c5e;
         --color-text: #333 ;
         --color-asterick: #1c75ff;
+        --color-stars: #f5c874;
+        --color-over-stars: #ff8f00;
     }
 
     * {                               /*white space reset*/
@@ -52,6 +54,18 @@
         align-items: center;
     }
 
+    .stars {
+        color: var(--color-stars);
+    }
+
+    .stars ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    .stars ul li {
+      display: inline-block;
+    }
 
 /*----- side menu controls ------------------------------*/
 
@@ -195,16 +209,7 @@
 
 /*----- header__stats -----------------------------------*/
 
-    .stats__stars {}
 
-    .stats__stars ul {
-      list-style: none;
-      text-align: center;
-    }
-
-    .stats__stars ul li {
-      display: inline-block;
-    }
 
     .stats__turns {
       width: 33%;
@@ -224,7 +229,7 @@
 
 
 
-/*----- main --------------------------------------------*/
+
 
 /*----- main - card styles ------------------------------*/
 
@@ -393,60 +398,7 @@
 
 
 
-/*----- win modal ----- from w3schools.com --------------*/
 
-    .winModal {
-        display: none;
-        position: absolute;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        transition: 0.5s;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-    }
-
-    .modal__content {
-        position: relative;
-        top: 50%;
-        border-radius: 5px;
-        transform: translateY(-50%);
-        background-color: var(--color-three);
-        color: var(--color-two);
-        width: 300px;
-        height: 300px;
-        /*maybe add a little header boarder*/
-        display: inline-grid;
-        padding:0 20px 20px 20px;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: var(--color-two);
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-/*    .row__modal {
-        display: inline-block;
-        grid-gap: 10px;
-    }*/
-
-  /*  .row__modal--left {
-        display: block;
-        grid-gap: 10px;
-        align-content: left;
-    }*/
 
 /*----- modal common ------------------------------------*/
 
@@ -455,20 +407,14 @@
         grid-gap: 10px;
     }*/
 
-    .row__modal--left {
+   /* .row__modal--left {
         display: block;
         grid-gap: 10px;
         align-content: left;
-    }
-
-    /*over__modal and winModal should be here as well*/
+    }*/
 
 
-/*----- game over modal ---------------------------------*/
-/*----- over__ ------------------------------------------*/
-
-
-.row__modal {  /*row*/
+.modal__row {  /*row*/
   width: 100%;
   /*height: 100%;*/
   display: flex;
@@ -477,21 +423,8 @@
   align-items: center;
 
 }
-   .over__modal {
-        display: none;
-        position: absolute;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        transition: 0.5s;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-    }
 
-    .over__content {
+    .modal__content {
         position: relative;
         top: 50%;
         border-radius: 5px;
@@ -506,82 +439,32 @@
 
     }
 
- .over-header {
-    width: 100%;
-    background-color: var(--color-one);
-    color: var(--color-three);
-    font-size: 3vmax;
-    border-radius: 5px 5px 0 0;
-    padding: 2px 0 2px 0 ;
-    height: 1.75em;
-  }
 
-  .glyph--color {
-      color: var(--color-asterick);
+    /*over__modal and winModal should be here as well*/
+
+
+/*----- game over modal ---------------------------------*/
+/*----- over__ ------------------------------------------*/
+
+
+
+   .over__modal {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: 0.5s;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
     }
 
-/*    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #333;
-        text-decoration: none;
-        cursor: pointer;
-    }*/
-
-/*.trophy2:before {
-    content: "";
-    display: block;
-    padding-top: 90%;
-  }*/
 
 
-    .trophy2 {
-      /*width: 33%;*/
-      /*justify-content:  right;*/
-      /*grid-column: span 2;*/
-      grid-column: 1/3;
-      grid-row: 1/6;
-
-   /*   grid-row: span 5;
-      grid-column: 1 span 2;*/
-    /*  background-image: url("../img/winner.png");
-      background-repeat: no-repeat;
-      background-size: cover;*/
-      /*height: 200px;*/
-
-    }
-
-    .modal__stats {
-      width: 67%;
-     }
-
-.ms-header {
-  font-size: 1em;
-  border-top: 1px solid var(--color-two);
-  border-bottom: 1px solid var(--color-two);
-  grid-column: span 3;
-  grid-row: 1;
-  justify-content: center;
-}
-
-.ms-header2 {
-  font-size: 1em;
-
-  grid-column: span 3;
-  grid-row: 2;
-}
-
-
-
-
-
-.stats__container {
+.over__stats {
 
     display: inline-grid;
         grid-template-columns: repeat(5,1fr);
@@ -597,32 +480,70 @@
 
 }
 
-.stats__container .align-rt {
+.over__stats .align-rt {
   text-align: right;
   padding-right: 10px;
 
 }
 
 
+    .over__stars--color {
+      color: var(--color-over-stars);
+    }
+
+ .over__header {
+    width: 100%;
+    background-color: var(--color-one);
+    color: var(--color-three);
+    font-size: 3vmax;
+    border-radius: 5px 5px 0 0;
+    padding: 2px 0 2px 0 ;
+    height: 1.75em;
+  }
+
+  .over__asterick--color {  /*//asterick--color*/
+      color: var(--color-asterick);
+    }
 
 
-.ms__row {
-  width: 100%;
 
+    .over__trophy {
+      /*width: 33%;*/
+      /*justify-content:  right;*/
+      /*grid-column: span 2;*/
+      grid-column: 1/3;
+      grid-row: 1/6;
+
+   /*   grid-row: span 5;
+      grid-column: 1 span 2;*/
+    /*  background-image: url("../img/winner.png");
+      background-repeat: no-repeat;
+      background-size: cover;*/
+      /*height: 200px;*/
+
+    }
+
+
+.over__stats__header {
+  font-size: 1em;
+  border-top: 1px solid var(--color-two);
+  border-bottom: 1px solid var(--color-two);
+  grid-column: span 3;
+  grid-row: 1;
+  justify-content: center;
 }
-.ms__row--highligh {
-  /*change background color
-  round corners*/
-}
 
 
-.modal__content--hidden {
-  display: none;
-}
 
-.modal__content--visible {
-  display: block;
-}
+
+
+
+
+
+
+
+
+
 
 /*----- rest game modal ---------------------------------*/
 /*----- reset__ -----------------------------------------*/
@@ -642,7 +563,7 @@
     }
 
 
-  .reset-header {
+  .reset__header {
     width: 100%;
     background-color: var(--color-one);
     color: var(--color-three);
@@ -652,7 +573,7 @@
     height: 1.75em;
   }
 
-  .reset-text {
+  .reset__msg {
     height: 5em;
     font-size: 1.5em;
     padding: 0 20px 0 20px;
@@ -715,9 +636,11 @@
 
 
 
+/*media breaks*/
+
 @media screen and (max-width: 599px) {
 
-      .over__content {
+      .modal__content {
         width: 100%;
       }
 
@@ -748,7 +671,7 @@
 
 @media screen and (min-width: 600px) and (max-width: 799px) {
 
-      .over__content {
+      .modal__content {
         width: 75%;
       }
 

@@ -59,7 +59,7 @@
         <div class="container__row">
             <div class="stats__turns">
                 <div id="turns"></div>
-                <div class="stats__stars">
+                <div class="stars">
                      <ul >
                         <li><span class="glyphicon glyphicon-star" id="star1"></span></li>
                         <li><span class="glyphicon glyphicon-star" id="star2"></span></li>
@@ -99,20 +99,20 @@
 
 </div>  <!-- container -->
 
-<!-- [TODO]  all of these classes need to be renamed appropriately -->
+
 <div class="over__modal" id="overModal">
-    <div class="over__content"> <!-- [TODO] change to modal__container -->
-        <div class="row__modal over-header">
+    <div class="modal__content">
+        <div class="modal__row over__header">
             You Won the Memory Game!
         </div>
 
-        <div class="row__modal">
-            <div class="stats__container">
-                <div class="trophy2">
+        <div class="modal__row">
+            <div class="over__stats">
+                <div class="over__trophy">
                     <img src="./img/winner.png" alt="Winners' Trohpy">
                 </div>
 
-                <div class="ms-header">
+                <div class="over__stats__header">
                     <h2>Game Stats</h2>
                 </div>
 
@@ -134,7 +134,7 @@
             </div>  <!-- stats-container -->
         </div>  <!-- modal row -->
 
-        <div class="row__modal">
+        <div class="modal__row">
             <div class="modal__btns--align">
                 <button class="modal__btns" id="over-ok">
                     OK
@@ -147,16 +147,16 @@
 
 <!-- good to go for the most part -->
 <div class="reset__modal" id="resetModal">
-    <div class="over__content"> <!-- [TODO] change to modal__container -->
-        <div class="row__modal reset-header">
+    <div class="modal__content"> <!-- [TODO] change to modal__container -->
+        <div class="modal__row reset__header">
             Reset Game
         </div>
-        <div class="row__modal reset-text">
+        <div class="modal__row reset__msg">
             <p>
                 Do you really want to reset the game and lose your current progress?
             </p>
         </div>
-        <div class="row__modal">  <!-- [TODO] rename button classes -->
+        <div class="modal__row">  <!-- [TODO] rename button classes -->
             <div class="modal__btns--align">
                 <button class="modal__btns" id="reset-yes">
                     Yes

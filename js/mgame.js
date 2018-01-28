@@ -360,21 +360,21 @@ function gameOver() {
     if (newBestTurns) {
         document.getElementById('turns-record').classList.add("glyphicon");
         document.getElementById('turns-record').classList.add("glyphicon-asterisk");
-        document.getElementById('turns-record').classList.add("glyph--color");
+        document.getElementById('turns-record').classList.add("over__asterick--color");
     } else {
         document.getElementById('turns-record').classList.remove("glyphicon-asterisk");
     }
     if (newBestTime) {
         document.getElementById('time-record').classList.add("glyphicon");
         document.getElementById('time-record').classList.add("glyphicon-asterisk");
-        document.getElementById('time-record').classList.add("glyph--color");
+        document.getElementById('time-record').classList.add("over__asterick--color");
     } else {
         document.getElementById('time-record').classList.remove("glyphicon-asterisk");
     }
     if (newBestStars) {
         document.getElementById('stars-record').classList.add("glyphicon");
         document.getElementById('stars-record').classList.add("glyphicon-asterisk");
-        document.getElementById('stars-record').classList.add("glyph--color");
+        document.getElementById('stars-record').classList.add("over__asterick--color");
     } else {
         document.getElementById('stars-record').classList.remove("glyphicon-asterisk");
     }
@@ -399,6 +399,7 @@ function gameOver() {
     }
     newStarDiv.appendChild(newStarUl);
     newStarDiv.classList.add("stars");
+    newStarDiv.classList.add("over__stars--color");
     newStarDiv.id="star-list";
     document.getElementById('your-stars').appendChild(newStarDiv);
 
@@ -419,6 +420,7 @@ function gameOver() {
     }
     newStarDiv.appendChild(newStarUl);
     newStarDiv.classList.add("stars");
+    newStarDiv.classList.add("over__stars--color");
     newStarDiv.id="best-star-list";
     document.getElementById('best-stars').appendChild(newStarDiv);
 
@@ -499,12 +501,12 @@ function updateTurns() {
     //called by buildGrid(), cardClicked()
     turns+=1;
     document.getElementById('turns').innerHTML="Turns: "+turns;
-    if (turns==17) {
+    if (turns==19) {
         document.getElementById('star3').classList.remove("glyphicon-star");
         document.getElementById('star3').classList.add("glyphicon-star-empty");
         starCount=2;
     }
-    if (turns==24) {
+    if (turns==25) {
         document.getElementById('star2').classList.remove("glyphicon-star");
         document.getElementById('star2').classList.add("glyphicon-star-empty");
         starCount=1;
