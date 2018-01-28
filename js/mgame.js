@@ -154,7 +154,7 @@ function setFaceDesign() {
 
         default:
             faceDesign = [
-                "glyphicon-plus","glyphicon-eur","glyphicon-envelope","glyphicon-cloud",
+                "glyphicon-plus","glyphicon-euro","glyphicon-envelope","glyphicon-cloud",
                 "glyphicon-music","glyphicon-search","glyphicon-heart","glyphicon-film",
                 "glyphicon-star","glyphicon-home","glyphicon-flag","glyphicon-camera",
                 "glyphicon-leaf","glyphicon-fire","glyphicon-eye-open","glyphicon-shopping-cart",

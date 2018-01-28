@@ -11,9 +11,7 @@
 <div class="container">
     <nav>
     <div  class="sidemenu" id="side-menu">
-
         <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-
         <div class="control-group">
             <h3>Card Designs</h3>
             <label class="control control--radio">Glyphs
@@ -29,14 +27,11 @@
                 <div class="control__indicator"></div>
             </label>
         </div>
-
         <div>
             <a href="javascript:void(0)" class="reset-top-marks" onclick="resetTopMarks()"><h3>Reset Top Marks</h3></a>
         </div>
     </div>
     </nav>
-
-
 
     <header class="header">
         <div class="container__row">
@@ -51,11 +46,9 @@
                 </span>
             </div>
         </div>
-
         <div class="container__row">
             <hr class="header__hr"></hr>
         </div>
-
         <div class="container__row">
             <div class="stats__turns">
                 <div id="turns"></div>
@@ -67,11 +60,9 @@
                     </ul>
                 </div>
             </div>
-
             <div class="stats__time">
                 <div id="time"></div>
             </div>
-
             <div class="stats__best">
                 <div id="best-score"></div>
                 <div id="best-time"></div>
@@ -79,14 +70,12 @@
         </div>
     </header>
 
+    <!-- main is populated by javascript -->
     <main id="field">
-        <!-- this is populated by javascript -->
-            <div id="card-grid">
-            </div>
+        <div id="card-grid"></div>
     </main>
 
     <footer class="footer">
-
             <hr class="footer__hr"></hr>
             <p>James Yech: <a href="https://github.com/JamesYech">Github repository</a></p>
             <p>Menu Controls: <a href="https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes">Kenan Yusuf</a></p>
@@ -94,46 +83,36 @@
             <p>Modal Buttons: <a href="www.sitepoint.com/modern-css-buttons">sitepoint</a></p>
             <p>Glyphicons: <a href="https://www.w3schools.com/icons/bootstrap_icons_glyphicons.asp">Bootstrap</a></p>
             <p>Dog and Flower Photos: Taken by James Yech </p>
-
     <footer>
-
 </div>  <!-- container -->
-
 
 <div class="over__modal" id="overModal">
     <div class="modal__content">
         <div class="modal__row over__header">
             You Won the Memory Game!
         </div>
-
         <div class="modal__row">
             <div class="over__stats">
                 <div class="over__trophy">
                     <img src="./img/winner.png" alt="Winners' Trohpy">
                 </div>
-
                 <div class="over__stats__header">
                     <h2>Game Stats</h2>
                 </div>
-
                 <div></div> <!-- empty div for alignment -->
                 <div>Yours</div>
                 <div>Best</div>
-
                 <div class="align-rt"><span id="turns-record"></span>Turns:</div>
                 <div id="your-turns"></div>
                 <div id="best-turns"></div>
-
                 <div class="align-rt"><span id="stars-record"></span>Stars:</div>
                 <div id="your-stars"></div>
                 <div id="best-stars"></div>
-
                 <div class="align-rt"><span id="time-record"></span>Time:</div>
                 <div id="your-time"></div>
                 <div id="best-time2"></div>
-            </div>  <!-- stats-container -->
-        </div>  <!-- modal row -->
-
+            </div>
+        </div>
         <div class="modal__row">
             <div class="modal__btns--align">
                 <button class="modal__btns" id="over-ok">
@@ -141,13 +120,12 @@
                 </button>
             </div>
         </div>
-    </div>  <!-- over-content -->
+    </div>
+</div>  <!-- over modal -->
 
-</div>  <!-- modal -->
 
-<!-- good to go for the most part -->
 <div class="reset__modal" id="resetModal">
-    <div class="modal__content"> <!-- [TODO] change to modal__container -->
+    <div class="modal__content">
         <div class="modal__row reset__header">
             Reset Game
         </div>
@@ -156,7 +134,7 @@
                 Do you really want to reset the game and lose your current progress?
             </p>
         </div>
-        <div class="modal__row">  <!-- [TODO] rename button classes -->
+        <div class="modal__row">
             <div class="modal__btns--align">
                 <button class="modal__btns" id="reset-yes">
                     Yes
@@ -169,8 +147,7 @@
             </div>
         </div>
     </div>
-
-</div>   <!-- modal -->
+</div>   <!-- reset modal -->
 
 <script src="js/mgame.js"></script>
 
