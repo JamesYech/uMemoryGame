@@ -25,7 +25,7 @@ function buildGrid() {
     // reset all the variables
     cards=[];
     faceUp=[];
-    turns=-1;  //  should be set at -1
+    turns=-1;
     matches=0;
     gameSeconds=-1;
     gameMinutes=0;
@@ -169,13 +169,11 @@ function setFaceDesign() {
 function displayTopMarks() {
     //check if stored locally and retrieve
     //called from buildGrid()
-    if (typeof(Storage) !== "undefined") {
+    if (typeof(Storage)!=="undefined") {
         if (typeof(localStorage.bestScore)!=="undefined") {
-
             bestTurns=Number(localStorage.bestScore);
         }
         if (typeof(localStorage.bestTime)!=="undefined") {
-
             bestSeconds=Number(localStorage.bestTime);
         }
         if (typeof(localStorage.bestTime)!=="undefined") {
@@ -191,34 +189,17 @@ function displayTopMarks() {
 function formatTime(s) {
     //returns time of game in 0h 00m 00s format
     //called by displayTopMarks(), gameOver(), gameTimer()
-    let hStr, mStr, sStr;
+    let hStr, mStr, sStr, timeString;
     let hours=Math.floor(s/3600);
     let minutes=Math.floor((s-(hours*3600))/60);
     let seconds=s-((hours*3600)+(minutes*60));
 
-    if (hours===0) {
-        hStr="";
-    } else {
-        hStr=hours;
-    }
+    (hours===0) ? hStr="" : hStr=hours;
+    (hours>0 && minutes<10) ? mStr="0"+minutes : mStr=minutes;
+    (seconds<10) ? sStr="0"+seconds : sStr=seconds;
+    (hours===0) ? timeString=mStr+"m "+sStr+"s" : timeString=hStr+"h "+mStr+"m "+sStr+"s";
 
-    if (hours>0 && minutes<10) {
-        mStr="0"+minutes;
-    } else {
-        mStr=minutes;
-    }
-
-    if (seconds<10) {
-        sStr="0"+seconds;
-    } else {
-        sStr=seconds;
-    }
-
-    if (hours===0) {
-        return(mStr+"m "+sStr+"s");
-    } else {
-        return(hStr+"h "+mStr+"m "+sStr+"s");
-    }
+    return(timeString);
 }
 
 function cardClicked(e) {
@@ -243,11 +224,7 @@ function cardClicked(e) {
             if (faceUp.length===2) {
                 //check if cards match
                 updateTurns();
-                if (cards[faceUp[0]].iconString===cards[faceUp[1]].iconString) {
-                    setTimeout(cardsMatch, 1500);
-                } else {
-                    setTimeout(cardsNoMatch, 1500);
-                }
+                (cards[faceUp[0]].iconString===cards[faceUp[1]].iconString) ? setTimeout(cardsMatch, 1500) : setTimeout(cardsNoMatch, 1500);
             }
         }   //else card is face up -- do nothing
     }
@@ -356,27 +333,18 @@ function gameOver() {
     //catch esc key so modal can be closed.
     document.addEventListener('keydown', escClose);
 
-    //set astericks if new top mark - clear old astericks as needed
-    if (newBestTurns) {
-        document.getElementById('turns-record').classList.add("glyphicon");
-        document.getElementById('turns-record').classList.add("glyphicon-asterisk");
-        document.getElementById('turns-record').classList.add("over__asterick--color");
-    } else {
-        document.getElementById('turns-record').classList.remove("glyphicon-asterisk");
+    newBestTime ? addAsterick("time-record") : removeAsterick("time-record");
+    newBestTurns ? addAsterick("turns-record") : removeAsterick("turns-record");
+    newBestStars ? addAsterick("stars-record") : removeAsterick("stars-record");
+
+    function addAsterick(id) {
+        document.getElementById(id).classList.add("glyphicon");
+        document.getElementById(id).classList.add("glyphicon-asterisk");
+        document.getElementById(id).classList.add("over__asterick--color");
     }
-    if (newBestTime) {
-        document.getElementById('time-record').classList.add("glyphicon");
-        document.getElementById('time-record').classList.add("glyphicon-asterisk");
-        document.getElementById('time-record').classList.add("over__asterick--color");
-    } else {
-        document.getElementById('time-record').classList.remove("glyphicon-asterisk");
-    }
-    if (newBestStars) {
-        document.getElementById('stars-record').classList.add("glyphicon");
-        document.getElementById('stars-record').classList.add("glyphicon-asterisk");
-        document.getElementById('stars-record').classList.add("over__asterick--color");
-    } else {
-        document.getElementById('stars-record').classList.remove("glyphicon-asterisk");
+
+    function removeAsterick(id) {
+        document.getElementById(id).classList.remove("glyphicon-asterisk");
     }
 
     //show modal
@@ -501,21 +469,27 @@ function updateTurns() {
     //called by buildGrid(), cardClicked()
     turns+=1;
     document.getElementById('turns').innerHTML="Turns: "+turns;
-    if (turns==19) {
-        document.getElementById('star3').classList.remove("glyphicon-star");
-        document.getElementById('star3').classList.add("glyphicon-star-empty");
-        starCount=2;
+    switch (turns) {
+        case 18:
+            starCount=2;
+            updateStars('star3');
+            break;
+
+        case 24:  //24
+            starCount=1;
+            updateStars('star2');
+            break;
+
+        case 33:
+            starCount=0;
+            updateStars('star1');
     }
-    if (turns==25) {
-        document.getElementById('star2').classList.remove("glyphicon-star");
-        document.getElementById('star2').classList.add("glyphicon-star-empty");
-        starCount=1;
+
+    function updateStars(id) {
+        document.getElementById(id).classList.remove("glyphicon-star");
+        document.getElementById(id).classList.add("glyphicon-star-empty");
     }
-    if (turns==33) {
-        document.getElementById('star1').classList.remove("glyphicon-star");
-        document.getElementById('star1').classList.add("glyphicon-star-empty");
-        starCount=0;
-    }
+
 }
 
 function gameTimer() {
