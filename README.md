@@ -1,11 +1,11 @@
-# uMemoryGame
+# The Memory Game
 
-PURPOSE
+**PURPOSE**
 
 This is the memory game project from Udacitys' Front-End Web Developer Nanodegree Program.
 
 
-GAME PLAY
+**GAME PLAY**
 
 Click on the cards to flip them face up.  If they match, they will stay face up otherwise they will be flipped face down again.  Play continues until all cards are matched.
 
@@ -16,12 +16,12 @@ Clicking the menu icon in the upper left will allow you to change the card faces
 Clicking the reset icon in the upper right will allow you to reset the current game.
 
 
-FEATURES
+**FEATURES**
 
 Top scores are stored locally and will be saved session to session if the users browser permits.
 
 
-CREDITS
+**CREDITS**
 
 See the footer section of the game for web pages I found useful during the development of this project.
 
