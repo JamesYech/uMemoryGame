@@ -21,11 +21,6 @@ Clicking the reset icon in the upper right will allow you to reset the current g
 Top scores are stored locally and will be saved session to session if the users browser permits.
 
 
-**ISSUES**
-
-Margins around cards don't calculate correctly.  This fixed in branch FF-Fix but I had already submitted the master to Udacity.  After project review I will merge the two branches.
-
-
 **CREDITS**
 
 See the footer section of the game for web pages I found useful during the development of this project.
