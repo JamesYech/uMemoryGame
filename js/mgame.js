@@ -21,32 +21,7 @@ var newBestStars=false;
 function buildGrid() {
     //sets up grid and start game
     //called from onload, gameOver(), resetGame(), closeMenu()
-
-    // reset all the variables
-    cards=[];
-    faceUp=[];
-    turns=-1;
-    matches=0;
-    gameSeconds=-1;
-    gameMinutes=0;
-    gamehours=0;
-    newBestTurns=false;
-    newBestStars=false;
-    newBestTime=false;
-    gameStarted=false;
-    starCount=3;
-
-    clearInterval(myTime);
-    buildIconArray();
-    gameTimer();  //once to set/reset timer to zero
-    displayTopMarks();
-
-    for (let x=1; x<=3; x++) {  //  set/reset stars
-        document.getElementById('star'+x).classList.remove("glyphicon-star-empty");
-        document.getElementById('star'+x).classList.add("glyphicon-star");
-    }
-
-    updateTurns();
+    prepBuildGrid();
     document.getElementById("card-grid").remove();
 
     let newCardGrid=document.createElement('div');
@@ -72,7 +47,6 @@ function buildGrid() {
                     newBackP.classList.add(cards[i].iconString);
                     newBackDiv.appendChild(newBackP);
             }
-
             newBackDiv.classList.add("card");
             newBackDiv.classList.add("card__back");
 
@@ -101,6 +75,33 @@ function buildGrid() {
     document.getElementById("field").appendChild(newCardGrid);
 }
 
+function prepBuildGrid() {
+    //called from buildGrid()
+    // reset all the variables
+    cards=[];
+    faceUp=[];
+    turns=-1;
+    matches=0;
+    gameSeconds=-1;
+    gameMinutes=0;
+    gamehours=0;
+    newBestTurns=false;
+    newBestStars=false;
+    newBestTime=false;
+    gameStarted=false;
+    starCount=3;
+
+    clearInterval(myTime);
+    buildIconArray();
+    gameTimer();  //once to set/reset timer to zero
+    displayTopMarks();
+    updateTurns();
+
+    for (let x=1; x<=3; x++) {  //  set/reset stars
+        document.getElementById('star'+x).classList.remove("glyphicon-star-empty");
+        document.getElementById('star'+x).classList.add("glyphicon-star");
+    }
+}
 
 function buildIconArray() {
     //Get the design choice then randomly sort the face elements and
@@ -156,7 +157,6 @@ function setFaceDesign() {
             }
     }
 }
-
 
 function displayTopMarks() {
     //check if stored locally and retrieve
@@ -468,7 +468,6 @@ function updateTurns() {
         document.getElementById(id).classList.remove("glyphicon-star");
         document.getElementById(id).classList.add("glyphicon-star-empty");
     }
-
 }
 
 function gameTimer() {
