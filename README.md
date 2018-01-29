@@ -21,6 +21,11 @@ Clicking the reset icon in the upper right will allow you to reset the current g
 Top scores are stored locally and will be saved session to session if the users browser permits.
 
 
+**ISSUES**
+
+Does not work in IE due to use of var() in the css file.  I've opted not to change this.
+
+
 **CREDITS**
 
 See the footer section of the game for web pages I found useful during the development of this project.
