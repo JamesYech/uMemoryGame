@@ -665,35 +665,36 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
-    .glyphicon-plus:before {content: "\002b";}
-    .glyphicon-euro:before {content: "\20ac";}
-    .glyphicon-envelope:before {content: "\2709";}
-    .glyphicon-cloud:before {content: "\2601";}
-    .glyphicon-music:before {content: "\e002";}
-    .glyphicon-search:before {content: "\e003";}
-    .glyphicon-heart:before {content: "\e005";}
-    .glyphicon-film:before {content: "\e009";}
-    .glyphicon-star:before {content: "\e006";}
-    .glyphicon-star-empty:before {content: "\e007";}
-    .glyphicon-home:before {content: "\e021";}
-    .glyphicon-flag:before {content: "\e034";}
-    .glyphicon-camera:before {content: "\e046";}
-    .glyphicon-leaf:before {content: "\e103";}
-    .glyphicon-fire:before {content: "\e104";}
-    .glyphicon-eye-open:before {content: "\e105";}
-    .glyphicon-shopping-cart:before {content: "\e116";}
-    .glyphicon-paperclip:before {content: "\e142";}
-    .glyphicon-phone:before {content: "\e145";}
-    .glyphicon-usd:before {content: "\e148";}
-    .glyphicon-phone-alt:before {content: "\e183";}
-    .glyphicon-tree-conifer:before {content: "\e199";}
-    .glyphicon-tree-deciduous:before {content: "\e200";}
-    .glyphicon-apple:before {content: "\f8ff";}
-    .glyphicon-hourglass:before {content: "\231b";}
-    .glyphicon-sunglasses:before {content: "\e240";}
+    .glyphicon1:before {content: "\002b";}
+    .glyphicon2:before {content: "\20ac";}
+    .glyphicon3:before {content: "\2709";}
+    .glyphicon4:before {content: "\2601";}
+    .glyphicon5:before {content: "\e002";}
+    .glyphicon6:before {content: "\e003";}
+    .glyphicon7:before {content: "\e005";}
+    .glyphicon8:before {content: "\e009";}
+    .glyphicon9:before {content: "\e006";}
+    .glyphicon10:before {content: "\e021";}
+    .glyphicon11:before {content: "\e034";}
+    .glyphicon12:before {content: "\e046";}
+    .glyphicon13:before {content: "\e103";}
+    .glyphicon14:before {content: "\e104";}
+    .glyphicon15:before {content: "\e105";}
+    .glyphicon16:before {content: "\e116";}
+    .glyphicon17:before {content: "\e142";}
+    .glyphicon18:before {content: "\e145";}
+    .glyphicon19:before {content: "\e148";}
+    .glyphicon20:before {content: "\e183";}
+    .glyphicon21:before {content: "\e199";}
+    .glyphicon22:before {content: "\e200";}
+    .glyphicon23:before {content: "\f8ff";}
+    .glyphicon24:before {content: "\231b";}
+    .glyphicon25:before {content: "\e240";}
     .glyphicon-repeat:before {content: "\e030";}
     .glyphicon-menu-hamburger:before {content: "\e236";}
     .glyphicon-asterisk:before {content: "\002a";}
+    .glyphicon-star:before {content: "\e006";}
+    .glyphicon-star-empty:before {content: "\e007";}
 
 
 

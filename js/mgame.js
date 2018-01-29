@@ -72,8 +72,10 @@ function buildGrid() {
                     newBackP.classList.add(cards[i].iconString);
                     newBackDiv.appendChild(newBackP);
             }
-            newBackDiv.classList.add("card");
-            newBackDiv.classList.add("card__back");
+
+
+             newBackDiv.classList.add("card");
+             newBackDiv.classList.add("card__back");
 
             //build front of card
             newFrontDiv.classList.add("card");
@@ -100,6 +102,7 @@ function buildGrid() {
     document.getElementById("field").appendChild(newCardGrid);
 }
 
+
 function buildIconArray() {
     //Get the design choice then randomly sort the face elements and
     //select the first 8 - duplicate those so there are two of each
@@ -118,6 +121,7 @@ function buildIconArray() {
     numArray.sort(function(a, b){return 0.5-Math.random()});
     //grab the first eight face options and duplicate so there are 16
     let iconArray=numArray.slice(0,8);
+    //duplicate array so there are two of each element (faces)
     iconArray=iconArray.concat(iconArray);
     //randomly sort the 16 faces
     iconArray.sort(function(a, b){return 0.5-Math.random()});
@@ -136,32 +140,21 @@ function setFaceDesign() {
     faceDesign=[];
     switch (designChoice) {
         case "dogs":
-         faceDesign=[
-            "./img/dog1.jpg","./img/dog2.jpg","./img/dog3.jpg",
-            "./img/dog4.jpg","./img/dog5.jpg","./img/dog6.jpg","./img/dog7.jpg",
-            "./img/dog8.jpg","./img/dog9.jpg","./img/dog10.jpg","./img/dog11.jpg"
-        ];
-        break;
+            for (let i=1; i<=11; i++) {
+                faceDesign.push("./img/dog"+i+".jpg");
+            }
+            break;
 
         case "flowers":
-            faceDesign=[
-                "./img/flower1.jpg", "./img/flower2.jpg","./img/flower4.jpg",
-                "./img/flower5.jpg","./img/flower6.jpg","./img/flower7.jpg","./img/flower8.jpg",
-                "./img/flower9.jpg","./img/flower10.jpg","./img/flower11.jpg","./img/flower12.jpg",
-                "./img/flower13.jpg","./img/flower14.jpg","./img/flower15.jpg"
-            ];
+            for (let i=1; i<=14; i++) {
+            faceDesign.push("./img/flower"+i+".jpg");
+            }
             break;
 
         default:
-            faceDesign=[
-                "glyphicon-plus","glyphicon-euro","glyphicon-envelope","glyphicon-cloud",
-                "glyphicon-music","glyphicon-search","glyphicon-heart","glyphicon-film",
-                "glyphicon-star","glyphicon-home","glyphicon-flag","glyphicon-camera",
-                "glyphicon-leaf","glyphicon-fire","glyphicon-eye-open","glyphicon-shopping-cart",
-                "glyphicon-paperclip","glyphicon-phone","glyphicon-usd","glyphicon-phone-alt",
-                "glyphicon-tree-conifer","glyphicon-tree-deciduous","glyphicon-apple",
-                "glyphicon-hourglass","glyphicon-sunglasses"
-            ];
+            for (let i=1; i<=25; i++) {
+            faceDesign.push("glyphicon"+i);
+            }
     }
 }
 
@@ -475,14 +468,10 @@ function updateTurns() {
             updateStars('star3');
             break;
 
-        case 24:  //24
+        case 24:
             starCount=1;
             updateStars('star2');
             break;
-
-        case 33:
-            starCount=0;
-            updateStars('star1');
     }
 
     function updateStars(id) {
