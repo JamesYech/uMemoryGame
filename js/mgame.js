@@ -240,7 +240,7 @@ function cardsMatch() {
     matches+=1;
     faceUp=[];
 
-    if (matches===8){
+    if (matches===1){
         //game is over
         clearInterval(myTime);  //stop timer
         saveTopMarks();  //compare and save top marks
@@ -330,66 +330,18 @@ function gameOver() {
     newBestTurns ? addAsterick("turns-record") : removeAsterick("turns-record");
     newBestStars ? addAsterick("stars-record") : removeAsterick("stars-record");
 
-    function addAsterick(id) {
-        document.getElementById(id).classList.add("glyphicon");
-        document.getElementById(id).classList.add("glyphicon-asterisk");
-        document.getElementById(id).classList.add("over__asterick--color");
-    }
-
-    function removeAsterick(id) {
-        document.getElementById(id).classList.remove("glyphicon-asterisk");
-    }
-
     //show modal
     modal.style.display="block";
 
-    // create your-stars div
-    if ( document.getElementById('star-list')!==null) {
-        //remove star-list div if previously created
-        document.getElementById('star-list').remove();
-      }
-    let newStarUl=document.createElement('ul');
-    let newStarDiv=document.createElement('div');
-    for (let x=1; x<=starCount; x++) {
-        let newStarli = document.createElement('li');
-        let newStarSpan = document.createElement('span');
-        newStarSpan.classList.add("glyphicon");
-        newStarSpan.classList.add("glyphicon-star");
-        newStarli.appendChild(newStarSpan);
-        newStarUl.appendChild(newStarli);
-    }
-    newStarDiv.appendChild(newStarUl);
-    newStarDiv.classList.add("stars");
-    newStarDiv.classList.add("over__stars--color");
-    newStarDiv.id="star-list";
-    document.getElementById('your-stars').appendChild(newStarDiv);
-
-    // Create Best-Stars div
-    if ( document.getElementById('best-star-list')!==null) {
-        //remove if previously created
-        document.getElementById('best-star-list').remove();
-       }
-    newStarUl=document.createElement('ul');
-    newStarDiv=document.createElement('div');
-    for (let x=1; x<=bestStars; x++) {
-        let newStarli=document.createElement('li');
-        let newStarSpan=document.createElement('span');
-        newStarSpan.classList.add("glyphicon");
-        newStarSpan.classList.add("glyphicon-star");
-        newStarli.appendChild(newStarSpan);
-        newStarUl.appendChild(newStarli);
-    }
-    newStarDiv.appendChild(newStarUl);
-    newStarDiv.classList.add("stars");
-    newStarDiv.classList.add("over__stars--color");
-    newStarDiv.id="best-star-list";
-    document.getElementById('best-stars').appendChild(newStarDiv);
+    //build star ranking div's
+    buildStars("star-list", "your-stars", starCount);
+    buildStars("best-star-list", "best-stars", bestStars);
 
     //set rest of game stats and top scores
     document.getElementById('your-turns').innerHTML=turns;
     document.getElementById('best-turns').innerHTML=bestTurns;
     document.getElementById('your-time').innerHTML=formatTime(gameSeconds);
-    document.getElementById('best-time2').innerHTML=formatTime(bestSeconds);
+    document.getElementById('top-time').innerHTML=formatTime(bestSeconds);
 
     okButton.onclick=function() {
         modal.style.display="none";
@@ -410,6 +362,43 @@ function gameOver() {
             buildGrid();
         }
     }
+}
+
+function addAsterick(id) {
+    //called from gameOver()
+    document.getElementById(id).classList.add("glyphicon");
+    document.getElementById(id).classList.add("glyphicon-asterisk");
+    document.getElementById(id).classList.add("over__asterick--color");
+}
+
+function removeAsterick(id) {
+    //called from gameOver()
+    document.getElementById(id).classList.remove("glyphicon-asterisk");
+}
+
+function buildStars(child,parent,stars) {
+    //builds the star ranking div's
+    //called from gameOver()
+    if ( document.getElementById(child)!==null) {
+        //remove if previously created
+        document.getElementById(child).remove();
+    }
+    newStarUl=document.createElement('ul');
+    newStarDiv=document.createElement('div');
+
+    for (let x=1; x<=stars; x++) {
+        let newStarli=document.createElement('li');
+        let newStarSpan=document.createElement('span');
+        newStarSpan.classList.add("glyphicon");
+        newStarSpan.classList.add("glyphicon-star");
+        newStarli.appendChild(newStarSpan);
+        newStarUl.appendChild(newStarli);
+    }
+    newStarDiv.appendChild(newStarUl);
+    newStarDiv.classList.add("stars");
+    newStarDiv.classList.add("over__stars--color");
+    newStarDiv.id=child;
+    document.getElementById(parent).appendChild(newStarDiv);
 }
 
 function resetGame() {
