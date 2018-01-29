@@ -43,6 +43,7 @@
 
     .container__row {
         width: 100%;
+        /*height: 138px;*/
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -249,7 +250,7 @@
     .card__wrapper {
         padding: 0px;
         width: 20%;
-        margin: 1.5%;
+        margin: 1.75vh;
     }
 
     .card__wrapper:before {
