@@ -73,9 +73,8 @@ function buildGrid() {
                     newBackDiv.appendChild(newBackP);
             }
 
-
-             newBackDiv.classList.add("card");
-             newBackDiv.classList.add("card__back");
+            newBackDiv.classList.add("card");
+            newBackDiv.classList.add("card__back");
 
             //build front of card
             newFrontDiv.classList.add("card");
@@ -278,43 +277,45 @@ function cardsNoMatch() {
 function saveTopMarks() {
     //compare game marks to top marks and save
     //called from cardsMatch()
-    if (bestTurns===0) {
-        //top scores haven't been set so set equal to current game
+    (bestTurns===0) ? noTopScores() : compareScores();
+}
+
+function noTopScores() {
+    //top scores haven't been set so set equal to current game
+    //called from saveTopMarks()
+    bestTurns=turns;
+    newBestTurns=true;
+    bestSeconds=gameSeconds;
+    newBestTime=true;
+    bestStars=starCount;
+    newBestStars=true;
+
+    if (typeof(Storage)!=="undefined") {
+        localStorage.setItem('bestTime',bestSeconds);
+        localStorage.setItem('bestScore',bestTurns);
+        localStorage.setItem('bestStars',bestStars);
+    }
+}
+
+function compareScores() {
+    //compare current game to top scores
+    //called from saveTopMarks()
+    if (turns<=bestTurns) {
         bestTurns=turns;
         newBestTurns=true;
+    }
+    if (gameSeconds<=bestSeconds) {
         bestSeconds=gameSeconds;
         newBestTime=true;
+    }
+    if (starCount>=bestStars) {
         bestStars=starCount;
         newBestStars=true;
-
-        if (typeof(Storage)!=="undefined") {
-            localStorage.setItem('bestTime',bestSeconds);
-            localStorage.setItem('bestScore',bestTurns);
-            localStorage.setItem('bestStars',bestStars);
-
-        }
-    } else {
-        //compare current game to top scores
-        if (turns<=bestTurns) {
-            bestTurns=turns;
-            newBestTurns=true;
-        }
-
-        if (gameSeconds<=bestSeconds) {
-            bestSeconds=gameSeconds;
-            newBestTime=true;
-        }
-
-        if (starCount>=bestStars) {
-            bestStars=starCount;
-            newBestStars=true;
-        }
-
-        if (typeof(Storage)!=="undefined") {
-            localStorage.setItem('bestTime',bestSeconds);
-            localStorage.setItem('bestScore',bestTurns);
-            localStorage.setItem('bestStars',bestStars);
-        }
+    }
+    if (typeof(Storage)!=="undefined") {
+        localStorage.setItem('bestTime',bestSeconds);
+        localStorage.setItem('bestScore',bestTurns);
+        localStorage.setItem('bestStars',bestStars);
     }
 }
 
