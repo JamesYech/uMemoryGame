@@ -239,7 +239,7 @@ function cardsMatch() {
     matches+=1;
     faceUp=[];
 
-    if (matches===1){
+    if (matches===8){
         //game is over
         clearInterval(myTime);  //stop timer
         saveTopMarks();  //compare and save top marks
